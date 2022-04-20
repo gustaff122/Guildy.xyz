@@ -1,0 +1,33 @@
+.task {
+    &--container {
+        background-color: var(--light-secondary);
+        border-radius: 10px;
+    }
+
+    &--tag {
+        background-color: var(--sky);
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    &--user {
+        background-color: var(--lavender);
+        display: flex;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.icon-warning {
+    color: var(--lava);
+    font-size: 32px;
+
+}
+
+.icon-comments {
+    color: var(--dark-primary);
+    font-size: 22px;
+}

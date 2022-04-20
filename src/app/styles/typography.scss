@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+.text {
+    &--logo {
+        font-family: 'Inter', sans-serif;
+        font-weight: 900;
+        font-size: 22px;
+        color: var(--dark-primary)
+    }
+
+    &--link {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--dark-primary)
+    }
+    
+    &--nav {
+        &_header {
+            font-family: 'Inter';
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dark-primary)
+        }
+        
+        &_link {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--dark-secondary)
+        }
+    }
+
+    &--name {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 16px;
+        color: #000;
+    }
+
+    &--warning {
+        font-family: 'Inter';
+        font-weight: 900;
+        font-size: 12px;
+        color: var(--lava)
+    }
+
+    &--title {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 36px;
+        color: black;
+    }
+
+    &--category {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 30px;
+        color: var(--dark-primary)
+    }
+
+    &--task {
+        &_header {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dark-primary)
+        }
+
+        &_tag {
+            font-family: 'Inter';
+            font-weight: 700;
+            font-size: 12px;
+            color: white;
+        }
+
+        &_comments {
+            font-family: 'Inter';
+            font-weight: 700;
+            font-size: 12px;
+        }
+    }
+
+}

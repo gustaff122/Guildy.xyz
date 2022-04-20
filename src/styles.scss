@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app//styles/variables.scss';
+@import './app/styles/typography.scss';
+
+@import "./app/styles/coolicons.scss";
+
+@import '../node_modules/ngx-simple-modal/styles/simple-modal.scss';

@@ -1,0 +1,18 @@
+.workers {
+    &--header {
+        font-size: 16px;
+        color: black;
+        font-family: 'Inter';
+        font-weight: 700;
+    }
+
+    &--user {
+        background-color: var(--lavender);
+        display: flex;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+}

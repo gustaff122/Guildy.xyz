@@ -1,0 +1,38 @@
+<div class="container modal--container p-4 mt-5">
+  <div class="row">
+    <div class="col-6">
+      <input type="text" class="w-100 modal--input" />
+      <i class="ci-edit icon-edit"></i>
+    </div>
+    <div class="col-4 offset-2">
+      <input type="date" class="w-100 modal--input text-uppercase" />
+    </div>
+    <div class="col-6 pe-0">
+      <div class="col-12">
+        <p class="modal--tag text--task_tag px-4 py-1 float-start">EP-09</p>
+      </div>
+
+      <div class="col-12">
+        <textarea class="w-100 modal--textarea"></textarea>
+        <i class="ci-edit icon-edit"></i>
+      </div>
+    </div>
+    <div
+      style="color: black"
+      class="col-6 mt-4 text-start ps-5 text--task_header"
+    >
+      Chat
+    </div>
+    <div class="col-12 row m-0 pe-0">
+      <div class="col-6">
+        <app-workers></app-workers>
+      </div>
+      <div class="col-6 d-flex justify-content-end align-items-center">
+        <button class="modal--btn modal--btn_discard">
+          Discard Changes...
+        </button>
+        <button class="modal--btn modal--btn_save ms-3">Save Changes...</button>
+      </div>
+    </div>
+  </div>
+</div>

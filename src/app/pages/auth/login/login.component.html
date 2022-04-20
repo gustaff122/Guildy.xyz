@@ -1,0 +1,37 @@
+<div class="container main-container">
+  <h1 class="text-center auth--header">EasyManager</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
+    <div class="col-4 offset-4 auth--container px-5 pt-5 pb-4">
+      <div class="col-12 mb-3">
+        <input
+          class="auth--input w-100"
+          type="text"
+          placeholder="E-Mail"
+          formControlName="UserEmail"
+        />
+        <i class="auth--icon ci-mail"></i>
+      </div>
+
+      <div class="col-12 mb-4">
+        <input
+          class="auth--input w-100"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <i class="auth--icon ci-show"></i>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="auth--btn w-100">Login</button>
+      </div>
+
+      <p class="text-center auth--redirect mt-2 mb-0">
+        You've got no account?
+        <span class="auth--redirect_link" routerLink="/auth/register"
+          >Register.</span
+        >
+      </p>
+    </div>
+  </form>
+</div>
