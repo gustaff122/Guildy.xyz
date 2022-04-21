@@ -17,11 +17,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpEasyManagerInterceptor } from './core/interceptors/http.interceptor';
 import { NgxsModule } from '@ngxs/store';
 import { UserState } from './shared/store/user.state';
+import { InitialsPipe } from './core/pipes/initials.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
+    InitialsPipe
   ],
   imports: [
     BrowserModule,

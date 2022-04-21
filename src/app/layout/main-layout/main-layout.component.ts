@@ -22,8 +22,6 @@ export class MainLayoutComponent {
 
   }
 
-  lol() {
-  }
 
   logOut() {
     this.userService.SignOut()

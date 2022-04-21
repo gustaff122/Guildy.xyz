@@ -25,7 +25,7 @@ export class UserService {
 
 
   completeRegister(data: UserMin) {
-    this.httpClient.post<UserMin>(`${this.API_URL}/users/register/`, data).subscribe
+    return this.httpClient.post<UserMin>(`${this.API_URL}/users/register/`, data).subscribe()
   }
 
   SignIn(data: User) {

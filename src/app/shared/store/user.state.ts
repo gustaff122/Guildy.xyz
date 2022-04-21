@@ -11,14 +11,24 @@ import { FetchUser, Login, Logout } from './user.actions';
 
 export interface IUserStateModel {
   isLogged: boolean | null;
-  user: UserMin | null;
+  user: {
+      UID: string,
+      UserEmail: string,
+      UserName: string,
+      color: string
+  };
 }
 
 @State<IUserStateModel>({
   name: 'user',
-  defaults: {
+  defaults: { //TEMP TODO
     isLogged: null,
-    user: null
+    user: {
+      UID: '',
+      UserEmail: '',
+      UserName: '',
+      color: ''
+    }
   },
 })
 @Injectable()
@@ -54,7 +64,6 @@ export class UserState {
   FetchUser(ctx: StateContext<IUserStateModel>, action: FetchUser) {
     return this.signService.getSelf().subscribe(
       data => {
-        console.log(data)
         ctx.patchState({ user: data, isLogged: true });
       }
     );

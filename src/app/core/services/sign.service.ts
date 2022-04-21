@@ -23,8 +23,7 @@ export class SignService {
   
   getSelf() {
     return this.fireAuth.authState.pipe(take(1), switchMap(res => {
-      console.log(res!.uid)
-      return this.httpClient.post<UserMin>(`${this.API_URL}/users/self/`, {"UID": res!.uid})
+      return this.httpClient.post<any>(`${this.API_URL}/users/self/`, {"UID": res!.uid}) //temp ANY
     }));
   }
 }
