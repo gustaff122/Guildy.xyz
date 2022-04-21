@@ -53,12 +53,12 @@
       </div>
 
       <div class="d-flex align-items-center mb-2">
-        <p (click)="lol()" class="nav--name text--name p-4 m-0">U</p>
+        <p [ngStyle]="{'background-color': (user$ | async)?.color}" class="nav--name text--name p-4 m-0">{{ (user$ | async)?.UserName | initials }}</p>
         <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.UserName }}</h4>
       </div>
     </div>
     <div class="col-10">
       <router-outlet></router-outlet>
-    </div>
+    </div>  
   </div>
 </div>
