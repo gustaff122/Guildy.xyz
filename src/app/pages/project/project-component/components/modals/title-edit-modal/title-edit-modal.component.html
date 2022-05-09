@@ -1,0 +1,19 @@
+<div class="container modal--container col-4 offset-4 p-4 mt-5">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" class="w-100 modal--input" [(ngModel)]="title" />
+      <i class="ci-edit icon-edit"></i>
+    </div>
+    <div class="col-12 d-flex justify-content-end align-items-center">
+      <button (click)="closeModal()" class="modal--btn modal--btn_discard">
+        Discard...
+      </button>
+      <button
+        (click)="patchProjectName()"
+        class="modal--btn modal--btn_save ms-3"
+      >
+        Save...
+      </button>
+    </div>
+  </div>
+</div>

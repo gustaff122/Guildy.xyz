@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@ng-select/ng-select": "^8.1.1",
     "@ngxs/store": "^3.7.3",
     "firebase": "^9.6.10",
     "ngx-simple-modal": "^1.4.17",

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
+import { Project } from 'src/app/core/interfaces/project-interface';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { SignService } from 'src/app/core/services/sign.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { UserState } from 'src/app/shared/store/user.state';
 
@@ -14,18 +17,25 @@ export class MainLayoutComponent {
 
   @Select(UserState.user) user$: Observable<any> | undefined;
 
+  public userProjects = this.router.snapshot.data[0]
 
   constructor(
     private userService: UserService,
-    private router: Router
-  ) {
-
-  }
+    private projectService: ProjectService,
+    private router: ActivatedRoute
+  ) {}
 
 
   logOut() {
     this.userService.SignOut()
   }
 
+  createProject() {
+    this.projectService.createProject()
+  }
+
+  log() {
+    console.log(this.userProjects)
+  }
 
 }

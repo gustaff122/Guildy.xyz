@@ -17,7 +17,7 @@ export class LoginComponent {
     private router: Router
   ) {
     this.form = this.formBuilder.group({
-      UserEmail: [],
+      useremail: [],
       password: []
     });
   }

@@ -18,8 +18,8 @@ export class RegisterComponent {
   ) { 
 
     this.form = this.formBuilder.group({
-      UserEmail: [],
-      UserName: [],
+      useremail: [],
+      username: [],
       password: []
     })
   }

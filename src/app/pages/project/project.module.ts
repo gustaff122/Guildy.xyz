@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './project.component';
-import { ColumnComponent } from './components/column/column.component';
-import { TaskComponent } from './components/task/task.component';
+import { ColumnComponent } from './project-component/components/column/column.component';
 import { SimpleModalModule } from 'ngx-simple-modal';
-import { TaskModalComponent } from './components/task-modal/task-modal.component';
+import { TaskModalComponent } from './project-component/components/modals/task-modal/task-modal.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProjectComponentComponent } from './project-component/project-component.component';
+import { TaskComponent } from './project-component/components/task/task.component';
+import { InitialsPipe } from 'src/app/core/pipes/initials.pipe';
+import { TaskAddModalComponent } from './project-component/components/modals/task-add-modal/task-add-modal.component';
+import { TitleEditModalComponent } from './project-component/components/modals/title-edit-modal/title-edit-modal.component';
 
 
 @NgModule({
@@ -15,14 +19,17 @@ import { SharedModule } from '../../shared/shared.module';
     ProjectComponent,
     ColumnComponent,
     TaskComponent,
-    TaskModalComponent
+    TaskModalComponent,
+    ProjectComponentComponent,
+    TaskAddModalComponent,
+    TitleEditModalComponent,
   ],
   imports: [
     CommonModule,
     ProjectRoutingModule,
     SimpleModalModule,
     SimpleModalModule.forRoot({container: document.body}),
-    SharedModule
+    SharedModule,
   ]
 })
 export class ProjectModule { }

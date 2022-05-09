@@ -1,0 +1,13 @@
+.edit-icon {
+    font-size: 20px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.project-title {
+    &:hover {
+        .edit-icon {
+            opacity: 1;
+        }
+    }
+}

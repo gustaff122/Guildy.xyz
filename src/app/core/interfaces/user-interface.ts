@@ -1,6 +1,7 @@
 export interface User {
-    UID: string,
-    UserEmail: string,
-    password: string,
-    UserName: string
+    uid?: string,
+    useremail: string,
+    password?: string,
+    username: string,
+    color?: string
 }

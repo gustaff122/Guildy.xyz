@@ -21,15 +21,23 @@
               src="../../../assets/icon-briefcase.svg"
               alt="briefcase"
             />
-            <h1 class="text--nav_header ms-1 m-0">My Projects</h1>
+            <h1 (click)="log()" class="text--nav_header ms-1 m-0">
+              My Projects
+            </h1>
           </div>
-          <h3 class="text--nav_link ms-4 mt-3">
-            <i class="ci-sub_right me-1"></i>Example Project
+          <h3
+            *ngFor="let project of userProjects"
+            class="text--nav_link ms-4 mt-3"
+          >
+            <span [routerLink]="['/project', project?.project]">
+              <i class="ci-sub_right me-1"></i>{{ project?.data.title }}</span
+            >
           </h3>
-          <h3 class="text--nav_link ms-4 mt-3">
-            <i class="ci-sub_right me-1"></i>Secret Project
-          </h3>
-          <h3 style="color: var(--orange)" class="text--nav_link ms-4 mt-3">
+          <h3
+            (click)="createProject()"
+            style="color: var(--orange); cursor: pointer"
+            class="text--nav_link ms-4 mt-3"
+          >
             <i class="ci-sub_right me-1"></i>Create New...
           </h3>
         </div>
@@ -53,12 +61,17 @@
       </div>
 
       <div class="d-flex align-items-center mb-2">
-        <p [ngStyle]="{'background-color': (user$ | async)?.color}" class="nav--name text--name p-4 m-0">{{ (user$ | async)?.UserName | initials }}</p>
-        <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.UserName }}</h4>
+        <p
+          [ngStyle]="{ 'background-color': (user$ | async)?.color }"
+          class="nav--name text--name p-4 m-0"
+        >
+          {{ (user$ | async)?.username | initials }}
+        </p>
+        <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.username }}</h4>
       </div>
     </div>
     <div class="col-10">
       <router-outlet></router-outlet>
-    </div>  
+    </div>
   </div>
 </div>
