@@ -1,4 +1,7 @@
-<div class="d-flex align-items-center justify-content-between">
+<div
+  [ngStyle]="selected ? { opacity: 1 } : { opacity: 0.4 }"
+  class="d-flex align-items-center justify-content-between"
+>
   <div class="d-flex align-items-center">
     <p
       [ngStyle]="{ 'background-color': worker.color }"
@@ -11,5 +14,9 @@
       <p class="workers--email">{{ worker.useremail }}</p>
     </div>
   </div>
-  <i class="ci-checkbox_square workers--check"></i>
+  <i
+    [ngClass]="selected ? 'ci-checkbox_square' : 'ci-checkbox'"
+    class="workers--check"
+    (click)="check()"
+  ></i>
 </div>

@@ -11,4 +11,11 @@ export class WorkerComponent {
 
   @Input()
   worker!: User;
+
+  @Input() selected: boolean = true
+
+  check() {
+    this.selected = !this.selected
+  }
+  
 }

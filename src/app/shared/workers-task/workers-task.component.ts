@@ -11,10 +11,13 @@ export class WorkersTaskComponent implements OnInit {
   @Input() workers: Array<User> = []
   @Input() allWorkers: Array<User> = []
 
+  public unusedWorkers: Array<User> = []
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.allWorkers)
+    const workersMap = this.workers.map(({ uid }) => uid);
+    this.unusedWorkers = this.allWorkers.filter(({ uid }) => !workersMap.includes(uid));
   }
 
 }
