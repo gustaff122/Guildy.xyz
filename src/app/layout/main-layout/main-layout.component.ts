@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Observable, switchMap, take } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project-interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { SignService } from 'src/app/core/services/sign.service';
@@ -22,7 +23,8 @@ export class MainLayoutComponent {
   constructor(
     private userService: UserService,
     private projectService: ProjectService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private fireAuth: AngularFireAuth,
   ) {}
 
 
@@ -32,10 +34,17 @@ export class MainLayoutComponent {
 
   createProject() {
     this.projectService.createProject()
+    this.setRoute()
   }
 
-  log() {
-    console.log(this.userProjects)
-  }
+  setRoute() {
+    let uid = ''
+    this.fireAuth.authState.pipe(take(1), switchMap(res => {
+      return uid = res!.uid;
+    }))
 
+    this.projectService.getAllProjects(uid).subscribe((res) => {
+      this.userProjects = res
+    })
+  }
 }

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { Subject, takeUntil } from 'rxjs';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { TitleEditModalComponent } from './components/modals/title-edit-modal/title-edit-modal.component';
 
 @Component({
   templateUrl: './project-component.component.html',
   styleUrls: ['./project-component.component.scss']
 })
-export class ProjectComponentComponent {
+export class ProjectComponentComponent implements OnInit {
 
   public selectedWorker: any;
   
@@ -19,23 +20,36 @@ export class ProjectComponentComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private simpleModalService: SimpleModalService
+    private simpleModalService: SimpleModalService,
+    private projectService: ProjectService,
   ) {
   }
 
-  public workers = [
-      { id: 1, name: 'Błażej Kłopotek' },
-      { id: 2, name: 'Maciej Megier' },
-      { id: 3, name: 'Szymon Bartoszewski' },
-      { id: 4, name: 'Adrian Żyła' },
-  ];
 
-  openTitleEditModal() {
-    this.simpleModalService.addModal(TitleEditModalComponent, {title: this.project.title, id: this.id}).pipe(takeUntil(this.destroy$)).subscribe();
+
+  setRoute() {
+    this.activatedRoute.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
+      this.projectService.getProject(params['id']).subscribe(res => {
+        this.project = res
+      })
+    })
   }
 
-  lol() {
-    console.log(this.project.todos)
+  ngOnInit(): void {
+    this.setRoute()
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  public workers = this.project.workers
+
+  openTitleEditModal() {
+    this.simpleModalService.addModal(TitleEditModalComponent, {title: this.project.title, id: this.id}).pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.setRoute()
+    });
   }
 
 }

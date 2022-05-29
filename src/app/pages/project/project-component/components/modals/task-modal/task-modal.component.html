@@ -1,50 +1,51 @@
-<div class="container modal--container p-4 mt-5">
+<form
+  (submit)="patchTask()"
+  [formGroup]="form"
+  class="container modal--container p-4 mt-5"
+>
   <div class="row">
     <div class="col-6">
-      <input type="text" class="w-100 modal--input" [(ngModel)]="task.title" />
+      <input type="text" class="w-100 modal--input" formControlName="title" />
       <i class="ci-edit icon-edit"></i>
     </div>
     <div class="col-4 offset-2">
       <input
-        [(ngModel)]="task.deadline"
+        formControlName="deadline"
         type="date"
         class="w-100 modal--input text-uppercase"
       />
     </div>
     <div class="col-6 pe-0">
       <div class="col-12">
-        <p
-          (click)="xd()"
-          class="modal--tag text--task_tag px-4 py-1 float-start"
-        >
+        <p class="modal--tag text--task_tag px-4 py-1 float-start">
           {{ task.id }}
         </p>
       </div>
 
       <div class="col-12">
         <textarea
-          [(ngModel)]="task.description"
+          formControlName="description"
           class="w-100 modal--textarea"
         ></textarea>
         <i class="ci-edit icon-edit"></i>
       </div>
     </div>
-    <div
-      style="color: black"
-      class="col-6 mt-4 text-start ps-5 text--task_header"
-    >
-      Chat
+    <div class="col-6 mt-4 ps-5">
+      <p class="text-start text--task_header" style="color: black">Workers</p>
+      <app-workers-task
+        [allWorkers]="projectworkers"
+        [workers]="task.workers"
+      ></app-workers-task>
     </div>
     <div class="col-12 row m-0 pe-0">
-      <div class="col-6">
-        <app-workers></app-workers>
-      </div>
-      <div class="col-6 d-flex justify-content-end align-items-center">
+      <div class="col-12 d-flex justify-content-end align-items-center">
         <button (click)="closeModal()" class="modal--btn modal--btn_discard">
           Discard Changes...
         </button>
-        <button class="modal--btn modal--btn_save ms-3">Save Changes...</button>
+        <button type="submit" class="modal--btn modal--btn_save ms-3">
+          Save Changes...
+        </button>
       </div>
     </div>
   </div>
-</div>
+</form>

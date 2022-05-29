@@ -5,6 +5,6 @@ export interface TaskInterface {
     title: string,
     description: string,
     workers: Array<User>,
-    deadline: string, //date-type?
-    //chat in the future
+    deadline: string,
+    category: string
 }

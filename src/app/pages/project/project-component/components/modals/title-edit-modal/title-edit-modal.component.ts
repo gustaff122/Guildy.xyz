@@ -20,8 +20,16 @@ export class TitleEditModalComponent extends SimpleModalComponent<any, string> {
     super()
   }
 
-  patchProjectName() {
-    this.projectService.patchProjetName(this.title, this.id)
+
+  async patchProjectName() {
+    let projectPatchName = {
+      title: this.title,
+      id: this.id
+    }
+    
+    this.projectService.patchProjetName(projectPatchName).subscribe((res) => {
+      this.close()
+    })
   }
 
   closeModal() {

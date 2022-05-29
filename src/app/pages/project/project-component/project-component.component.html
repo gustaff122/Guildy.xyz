@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" cdkDropListGroup>
   <div class="row">
     <h1
       class="project-title text--title text-center mt-5 mb-3 d-flex justify-content-center align-items-center"
@@ -7,25 +7,36 @@
       <i (click)="openTitleEditModal()" class="ci-edit edit-icon ms-2"></i>
     </h1>
 
-    <p (click)="lol()">XD</p>
-
-    <div class="col-12 d-flex justify-content-between align-items-center mb-2">
-      <ng-select style="width: 15%" [(ngModel)]="selectedWorker">
-        <ng-option *ngFor="let worker of workers" [value]="worker.id">{{
-          worker.name
-        }}</ng-option>
-      </ng-select>
-      <app-workers></app-workers>
+    <div class="col-12 d-flex justify-content-end align-items-center mb-4">
+      <app-workers [project]="id" [workers]="workers"></app-workers>
     </div>
 
     <div class="col-4">
-      <app-column header="TODOs" [tasks]="project.todos"></app-column>
+      <app-column
+        header="TODOs"
+        [tasks]="project.todos"
+        [projectworkers]="workers"
+        [projectid]="id"
+        (emittedFunction)="setRoute()"
+      ></app-column>
     </div>
     <div class="col-4">
-      <app-column header="WIPs" [tasks]="project.wips"></app-column>
+      <app-column
+        header="WIPs"
+        [tasks]="project.wips"
+        [projectworkers]="workers"
+        [projectid]="id"
+        (emittedFunction)="setRoute()"
+      ></app-column>
     </div>
     <div class="col-4">
-      <app-column header="Completed" [tasks]="project.completed"></app-column>
+      <app-column
+        header="Completed"
+        [tasks]="project.completed"
+        [projectworkers]="workers"
+        [projectid]="id"
+        (emittedFunction)="setRoute()"
+      ></app-column>
     </div>
   </div>
 </div>

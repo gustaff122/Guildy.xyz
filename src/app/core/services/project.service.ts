@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { UserState } from 'src/app/shared/store/user.state';
 import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/project-interface';
+import { ProjectPatchName } from '../interfaces/project-patchname-interface';
+import { TaskInterface } from '../interfaces/task-interface';
 import { SignService } from './sign.service';
 
 @Injectable({
@@ -36,7 +38,32 @@ export class ProjectService {
     return this.httpClient.get<Project>(`${this.API_URL}/projects/${id}`)
   }
 
-  patchProjetName(title: string, id: string) {
-    return this.httpClient.patch(`${this.API_URL}/projects/title`, {title: title, id: id})
+  patchProjetName(projectName: ProjectPatchName) {
+    return this.httpClient.patch<ProjectPatchName>(`${this.API_URL}/projects/title/`, projectName)
+  }
+
+  createTask(task: TaskInterface, project: string) {
+    return this.httpClient.post(`${this.API_URL}/task/`, {task: task, project: project})
+  }
+
+  patchTask(task: TaskInterface, project: string) {
+    return this.httpClient.patch<string>(`${this.API_URL}/task/`, {task: task, project: project})
+  }
+
+  moveTask(task: TaskInterface, project: string, category: string) {
+    return this.httpClient.patch<string>(`${this.API_URL}/task/move`, {task: task, project: project, category: category})
+  }
+
+  addProjectWorkers(project: string, worker: string) {
+    return this.httpClient.post<string>(`${this.API_URL}/projects/workers/`, {project: project, worker: worker})
+  }
+
+  removeProjectWorkers(project: string, worker: string) {
+    return this.httpClient.patch<string>(`${this.API_URL}/projects/workers/`, {project: project, worker: worker})
+  }
+
+  getTaskCategory(project: string, task: string) {
+    return this.httpClient.post(`${this.API_URL}/task/category/`, {project: project, task: task}, {responseType: 'text'})
   }
 }
+``

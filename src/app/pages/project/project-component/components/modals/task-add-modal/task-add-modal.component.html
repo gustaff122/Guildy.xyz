@@ -1,34 +1,44 @@
-<div class="container">
+<form [formGroup]="form" class="container">
   <div class="col-10 offset-1 modal--container p-4 mt-5">
     <div class="row">
       <div class="col-6">
-        <input type="text" class="w-100 modal--input" />
+        <input formControlName="title" type="text" class="w-100 modal--input" />
         <i class="ci-edit icon-edit"></i>
       </div>
       <div class="col-4 offset-2">
-        <input type="date" class="w-100 modal--input text-uppercase" />
+        <input
+          formControlName="deadline"
+          type="date"
+          class="w-100 modal--input text-uppercase"
+        />
       </div>
       <div class="col-12">
         <div class="col-12">
-          <textarea class="w-100 modal--textarea"></textarea>
+          <textarea
+            formControlName="description"
+            class="w-100 modal--textarea"
+          ></textarea>
           <i class="ci-edit icon-edit"></i>
         </div>
       </div>
 
+      <p class="text-danger text-start" *ngIf="showError">
+        *title, deadline and description are necessary!
+      </p>
+
       <div class="col-12 row m-0 pe-0">
-        <div class="col-6">
-          <app-workers></app-workers>
-        </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
+        <div class="col-12 d-flex justify-content-end align-items-center">
           <button
             (click)="closeModal()"
             class="modal--btn modal--btn_discard ms-3"
           >
             Discard...
           </button>
-          <button class="modal--btn modal--btn_save ms-3">Add task...</button>
+          <button (click)="addTask()" class="modal--btn modal--btn_save ms-3">
+            Add task...
+          </button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>

@@ -12,6 +12,7 @@ import { TaskComponent } from './project-component/components/task/task.componen
 import { InitialsPipe } from 'src/app/core/pipes/initials.pipe';
 import { TaskAddModalComponent } from './project-component/components/modals/task-add-modal/task-add-modal.component';
 import { TitleEditModalComponent } from './project-component/components/modals/title-edit-modal/title-edit-modal.component';
+import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guard.guard';
 
 
 @NgModule({

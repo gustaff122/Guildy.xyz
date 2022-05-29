@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { User } from 'src/app/core/interfaces/user-interface';
@@ -31,7 +31,8 @@ export class UserState {
 
   constructor(
     private router: Router,
-    private signService: SignService
+    private signService: SignService,
+    private ngZone: NgZone
   ) { }
 
   
@@ -68,7 +69,7 @@ export class UserState {
     ctx.patchState({
       isLogged: false,
     });
-    this.router.navigateByUrl('/auth/login');
+    this.ngZone.run(() => this.router.navigateByUrl('/auth/login'));
     return null;
   }
 

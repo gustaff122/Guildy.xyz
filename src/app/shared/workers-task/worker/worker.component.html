@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center">
+    <p
+      [ngStyle]="{ 'background-color': worker.color }"
+      class="workers--user text--name me-2"
+    >
+      {{ worker.username | initials }}
+    </p>
+    <div class="text-start">
+      <p class="mb-0 workers--username">{{ worker.username }}</p>
+      <p class="workers--email">{{ worker.useremail }}</p>
+    </div>
+  </div>
+  <i class="ci-checkbox_square workers--check"></i>
+</div>

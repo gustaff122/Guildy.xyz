@@ -6,3 +6,7 @@
 @import '../node_modules/ngx-simple-modal/styles/simple-modal.scss';
 
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+body {
+    overflow-y: hidden; //TODO fix
+}

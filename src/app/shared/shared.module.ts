@@ -6,19 +6,27 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { InitialsPipe } from '../core/pipes/initials.pipe';
 import { WorkersModalComponent } from './workers/workers-modal/workers-modal.component';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { WorkersTaskComponent } from './workers-task/workers-task.component';
+import { WorkerComponent } from './workers-task/worker/worker.component';
+
 
 
 @NgModule({
   declarations: [
     WorkersComponent,
     InitialsPipe,
-    WorkersModalComponent
+    WorkersModalComponent,
+    WorkersTaskComponent,
+    WorkerComponent,
+
   ],
   imports: [
     CommonModule,
     NgSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   exports: [
     WorkersComponent,
@@ -26,7 +34,10 @@ import { WorkersModalComponent } from './workers/workers-modal/workers-modal.com
     FormsModule,
     ReactiveFormsModule,
     InitialsPipe,
-    WorkersModalComponent
+    WorkersModalComponent,
+    DragDropModule,
+    WorkersTaskComponent,
+
   ]
 })
 export class SharedModule { }

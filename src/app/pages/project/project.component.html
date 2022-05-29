@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<div class="position-relative">
+  <div [@routeSlide]="getState(outletRef)">
+    <router-outlet #outletRef="outlet"></router-outlet>
+  </div>
+</div>

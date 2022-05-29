@@ -6,7 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class InitialsPipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
-    return value.split(' ').map(n => n[0]).join('');
+    if (value == null) {
+      return ' '
+    } else {
+      return value.split(' ').map(n => n[0]).join('');
+    }
+    
   }
 
 }

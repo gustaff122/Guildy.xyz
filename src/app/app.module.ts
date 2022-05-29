@@ -11,11 +11,14 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { AuthRoutingModule } from './pages/auth/auth-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpEasyManagerInterceptor } from './core/interceptors/http.interceptor';
 import { NgxsModule } from '@ngxs/store';
 import { UserState } from './shared/store/user.state';
 import { InitialsPipe } from './core/pipes/initials.pipe';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouteReuseStrategy } from '@angular/router';
+import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -35,11 +39,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpEasyManagerInterceptor,
-      multi: true,
-    },
+    { provide: RouteReuseStrategy, useClass: ProjectReuseStrategy },
   ],
   bootstrap: [AppComponent],
   exports: [
