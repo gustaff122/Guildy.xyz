@@ -8,7 +8,6 @@ import { ProjectService } from 'src/app/core/services/project.service';
   selector: 'app-workers-modal',
   templateUrl: './workers-modal.component.html',
   styleUrls: ['./workers-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkersModalComponent extends SimpleModalComponent<any, string> {
 
@@ -16,6 +15,8 @@ export class WorkersModalComponent extends SimpleModalComponent<any, string> {
 @Input() project: string = ''
 
 public worker = new FormControl('');
+
+public invalid = ''
 
   constructor(
     private projectService: ProjectService
@@ -28,14 +29,22 @@ public worker = new FormControl('');
   }
 
   addWorker() {
-    this.projectService.addProjectWorkers(this.project, this.worker.value).subscribe(() => {
-      this.close()
+    this.projectService.addProjectWorkers(this.project, this.worker.value).subscribe((res) => {
+      if (res == "ok") {
+        this.close()
+      } else {
+        this.invalid = 'This person has no account.'
+      }
     })
   }
 
   removeWorker(uid: string) {
-    this.projectService.removeProjectWorkers(this.project, uid).subscribe(() => {
-      this.close()
+    this.projectService.removeProjectWorkers(this.project, uid).subscribe((res) => {
+      if (res == "ok") {
+        this.close()
+      } else {
+        this.invalid = 'Cannot remove owner from project.'
+      }
     })
   }
 

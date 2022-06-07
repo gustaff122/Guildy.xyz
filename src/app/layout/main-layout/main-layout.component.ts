@@ -18,12 +18,13 @@ export class MainLayoutComponent {
 
   @Select(UserState.user) user$: Observable<any> | undefined;
 
-  public userProjects = this.router.snapshot.data[0]
+  public userProjects = this.activatedRoute.snapshot.data[0]
 
   constructor(
     private userService: UserService,
     private projectService: ProjectService,
-    private router: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private fireAuth: AngularFireAuth,
   ) {}
 
@@ -33,7 +34,9 @@ export class MainLayoutComponent {
   }
 
   createProject() {
-    this.projectService.createProject()
+    this.projectService.createProject().subscribe(uid => {
+      this.router.navigate([`/project/${uid}`]);
+    })
     this.setRoute()
   }
 

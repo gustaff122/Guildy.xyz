@@ -4,21 +4,21 @@
   class="container modal--container p-4 mt-5"
 >
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6 px-0">
       <input type="text" class="w-100 modal--input" formControlName="title" />
       <i class="ci-edit icon-edit"></i>
     </div>
-    <div class="col-4 offset-2">
+    <div class="col-12 col-md-4 offset-md-2 px-0">
       <input
         formControlName="deadline"
         type="date"
         class="w-100 modal--input text-uppercase"
       />
     </div>
-    <div class="col-6 pe-0">
+    <div class="col-12 col-md-6 pe-0 mt-4 mt-md-0 ps-0">
       <div class="col-12">
         <p class="modal--tag text--task_tag px-4 py-1 float-start">
-          {{ task.id }}
+          {{ taskData.id }}
         </p>
       </div>
 
@@ -30,15 +30,18 @@
         <i class="ci-edit icon-edit"></i>
       </div>
     </div>
-    <div class="col-6 mt-4 ps-5">
+    <div class="col-12 col-md-6 mt-4 pe-0 ps-md-5">
       <p class="text-start text--task_header" style="color: black">Workers</p>
       <app-workers-task
         [allWorkers]="projectworkers"
-        [workers]="task.workers"
+        [workers]="taskData.workers"
+        (emittedFunction)="getWorkers($event)"
       ></app-workers-task>
     </div>
-    <div class="col-12 row m-0 pe-0">
-      <div class="col-12 d-flex justify-content-end align-items-center">
+    <div class="col-12 row m-0 pe-0 mt-3 mt-md-0">
+      <div
+        class="col-12 d-flex justify-content-between justify-content-md-end align-items-center"
+      >
         <button (click)="closeModal()" class="modal--btn modal--btn_discard">
           Discard Changes...
         </button>

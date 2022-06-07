@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
 import { User } from 'src/app/core/interfaces/user-interface';
 
 @Component({
@@ -7,15 +7,28 @@ import { User } from 'src/app/core/interfaces/user-interface';
   styleUrls: ['./worker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WorkerComponent {
+export class WorkerComponent implements OnInit{
 
   @Input()
-  worker!: User;
+  worker!: User
 
   @Input() selected: boolean = true
 
-  check() {
-    this.selected = !this.selected
+  @Output() useremailEmit = new EventEmitter<Object>();
+
+  ngOnInit(): void {
+    if (this.selected == true) {
+      this.emit()
+    }
   }
-  
+
+  emit() {
+    let obj = {
+      selected: this.selected,
+      worker: this.worker.useremail,
+      uid: this.worker.uid
+    }
+    this.useremailEmit.emit(obj);
+  }
+
 }

@@ -1,0 +1,48 @@
+.project {
+    &--container {
+        background-color: var(--cloud);
+
+        &_add {
+            background-color: var(--sky);
+            opacity: 0.45;
+            transition: opacity 0.25s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1
+            }
+        }
+    }
+
+    &--name {
+        font-size: 26px;
+        text-align: center;
+        color: #000;
+        font-family: 'Inter';
+        font-weight: 700;
+    }
+
+    &--icon {
+        font-size: 36px;
+        color: black;
+        transition: color 0.15s ease-in-out;
+        cursor: pointer;
+
+        &:first-child {
+            &:hover {
+                color: var(--lava)
+            }
+        }
+
+        &:hover {
+            color: var(--sun);
+        }
+
+        
+        &_neutral {
+            &:hover {
+                color: black !important
+            }
+        }
+    }
+}

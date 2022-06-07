@@ -1,74 +1,95 @@
+<div class="d-flex align-items-center d-lg-none mt-2">
+  <i (click)="logOut()" class="text--link m-0 nav--logout ci-log_out ms-1"></i>
+  <h1
+    style="cursor: pointer"
+    [routerLink]="['/welcome']"
+    class="text--logo mb-0 ms-2"
+  >
+    EasyManager
+  </h1>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <div
-      class="col-2 nav--container p-3 d-flex flex-column justify-content-between"
+      class="col-2 nav--container p-1 p-xl-3 d-none d-lg-flex flex-column justify-content-between"
     >
       <div class="d-flex justify-content-between align-items-center mt-2">
-        <h1 class="text--logo m-0">EasyManager</h1>
-        <p (click)="logOut()" class="text--link m-0 nav--logout">
-          LOGOUT<i class="ci-exit ms-1"></i>
-        </p>
-      </div>
-
-      <div
-        class="col-12 nav--content p-3 d-flex justify-content-between flex-column"
-      >
-        <div>
-          <div class="d-flex align-items-center">
-            <img
-              width="42"
-              height="31"
-              src="../../../assets/icon-briefcase.svg"
-              alt="briefcase"
-            />
-            <h1 class="text--nav_header ms-1 m-0">My Projects</h1>
-          </div>
-          <h3
-            *ngFor="let project of userProjects"
-            class="text--nav_link ms-4 mt-3"
-          >
-            <span [routerLink]="['/project', project?.project]">
-              <i class="ci-sub_right me-1"></i>{{ project?.data.title }}</span
-            >
-          </h3>
-          <h3
-            (click)="createProject()"
-            style="color: var(--orange); cursor: pointer"
-            class="text--nav_link ms-4 mt-3"
-          >
-            <i class="ci-sub_right me-1"></i>Create New...
-          </h3>
-        </div>
-        <div>
-          <div class="d-flex align-items-center">
-            <img
-              width="42"
-              height="31"
-              src="../../../assets/icon-about.svg"
-              alt="about"
-            />
-            <h1 class="text--nav_header ms-1 m-0">About us</h1>
-          </div>
-          <h3 class="text--nav_link ms-4 mt-3">
-            <i class="ci-sub_right me-1"></i>Creators
-          </h3>
-          <h3 class="text--nav_link ms-4 mt-3">
-            <i class="ci-sub_right me-1"></i>Why did we do it?
-          </h3>
-        </div>
-      </div>
-
-      <div class="d-flex align-items-center mb-2">
-        <p
-          [ngStyle]="{ 'background-color': (user$ | async)?.color }"
-          class="nav--name text--name p-4 m-0"
+        <h1
+          style="cursor: pointer"
+          [routerLink]="['/welcome']"
+          class="text--logo m-0"
         >
-          {{ (user$ | async)?.username | initials }}
-        </p>
-        <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.username }}</h4>
+          EasyManager
+        </h1>
+
+        <i
+          (click)="logOut()"
+          class="text--link m-0 nav--logout ci-log_out ms-1"
+        ></i>
+      </div>
+
+      <div class="p-1 nav--content_bg">
+        <div
+          class="col-12 nav--content py-3 px-xxl-3 d-flex justify-content-between flex-column"
+        >
+          <div>
+            <div class="d-flex align-items-center">
+              <img
+                width="42"
+                height="31"
+                src="../../../assets/icon-briefcase.svg"
+                alt="briefcase"
+              />
+              <h1 class="text--nav_header ms-1 m-0">My Projects</h1>
+            </div>
+            <h3
+              *ngFor="let project of userProjects"
+              class="text--nav_link ms-4 mt-3"
+            >
+              <span [routerLink]="['/project', project.project]">
+                <i class="ci-sub_right me-1"></i>{{ project.data.title }}</span
+              >
+            </h3>
+            <h3
+              (click)="createProject()"
+              style="color: var(--orange); cursor: pointer"
+              class="text--nav_link ms-4 mt-3"
+            >
+              <i class="ci-sub_right me-1"></i>Create New...
+            </h3>
+          </div>
+          <div>
+            <div class="d-flex align-items-center">
+              <img
+                width="42"
+                height="31"
+                src="../../../assets/icon-about.svg"
+                alt="about"
+              />
+              <h1 class="text--nav_header ms-1 m-0">About us</h1>
+            </div>
+            <h3 class="text--nav_link ms-4 mt-3">
+              <i class="ci-sub_right me-1"></i>Creators
+            </h3>
+            <h3 class="text--nav_link ms-4 mt-3">
+              <i class="ci-sub_right me-1"></i>Why did we do it?
+            </h3>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center mb-2">
+          <p
+            [ngStyle]="{ 'background-color': (user$ | async)?.color }"
+            class="nav--name text--name p-4 m-0"
+          >
+            {{ (user$ | async)?.username | initials }}
+          </p>
+          <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.username }}</h4>
+        </div>
       </div>
     </div>
-    <div class="col-10">
+    <div class="col-12 col-lg-10">
       <router-outlet></router-outlet>
     </div>
   </div>

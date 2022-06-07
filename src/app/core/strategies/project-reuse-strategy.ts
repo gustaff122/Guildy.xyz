@@ -7,6 +7,6 @@ export class ProjectReuseStrategy implements RouteReuseStrategy {
     public shouldAttach(route: ActivatedRouteSnapshot): boolean { return false; }
     public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null { return null; }
     public shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
-        return (curr.component !== future.component) || future.data["reuse"];
+        return false
     }
 }

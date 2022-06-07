@@ -14,17 +14,26 @@
     &--user {
         background-color: var(--lavender);
         display: flex;
-        width: 30px;
-        height: 30px;
+        min-width: 50px;
+        min-height: 50px;
         border-radius: 100%;
         align-items: center;
         justify-content: center;
+
+        @media screen and (max-width: 1399px) {
+            min-width: 40px;
+            min-height: 40px
+        }
     }
 }
 
 .icon-warning {
     color: var(--lava);
     font-size: 32px;
+
+    @media screen and (max-width: 1399px) {
+        font-size: 22px
+    }
 
 }
 

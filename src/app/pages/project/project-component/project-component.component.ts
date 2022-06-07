@@ -25,12 +25,13 @@ export class ProjectComponentComponent implements OnInit {
   ) {
   }
 
-
+  public workers = []
 
   setRoute() {
     this.activatedRoute.params.pipe(takeUntil(this.destroy$)).subscribe(params => {
       this.projectService.getProject(params['id']).subscribe(res => {
-        this.project = res
+        this.project = res;
+        this.workers = this.project.workers
       })
     })
   }
@@ -44,7 +45,7 @@ export class ProjectComponentComponent implements OnInit {
     this.destroy$.complete();
   }
 
-  public workers = this.project.workers
+
 
   openTitleEditModal() {
     this.simpleModalService.addModal(TitleEditModalComponent, {title: this.project.title, id: this.id}).pipe(takeUntil(this.destroy$)).subscribe(() => {

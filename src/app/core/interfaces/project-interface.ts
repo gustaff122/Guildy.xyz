@@ -5,6 +5,7 @@ export interface Project {
     id?: string,
     title?: string
     workers?: Array<User>,
+    projectworkers?: Array<User>,
     owner?: string,
     todos?: TaskInterface,
     wips?: TaskInterface

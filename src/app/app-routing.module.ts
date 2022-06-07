@@ -6,6 +6,7 @@ import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectL
 import { MainLayoutResolver } from './layout/main-layout/main-layout.resolver';
 import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
 import { AppComponent } from './app.component';
+import { MainPagesResolver } from './pages/main-pages/main-pages.resolver';
 
 const redirectLoggedInToProject = () => redirectLoggedInTo(['project']);
 const redirectUnauthorizedToAuth = () => redirectUnauthorizedTo(['auth']);
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'auth', component: AppComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToProject }, loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
   { path: 'project', component: MainLayoutComponent, resolve: [MainLayoutResolver], runGuardsAndResolvers: 'always', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToAuth }, loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule) },
-  { path: 'welcome', loadChildren: () => import('./pages/main-pages/main-pages.module').then(m => m.MainPagesModule) },
+  { path: 'welcome', resolve: [MainPagesResolver], loadChildren: () => import('./pages/main-pages/main-pages.module').then(m => m.MainPagesModule) },
   
 ];
 

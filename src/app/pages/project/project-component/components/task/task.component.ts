@@ -3,6 +3,7 @@ import { SimpleModalService } from 'ngx-simple-modal';
 import { Subject, takeUntil } from 'rxjs';
 import { TaskInterface } from 'src/app/core/interfaces/task-interface';
 import { User } from 'src/app/core/interfaces/user-interface';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
 
 @Component({
@@ -11,10 +12,10 @@ import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
   styleUrls: ['./task.component.scss'],
 
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
 
   @Input()
-  task!: TaskInterface | null;
+  task!: TaskInterface;
 
   @Input()
   project!: string;
@@ -26,15 +27,33 @@ export class TaskComponent {
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(
-    private simpleModalService: SimpleModalService
+    private simpleModalService: SimpleModalService,
+    private projectService: ProjectService
   ) {
 
   }
 
+  ngOnInit(): void {
+    console.log(this.task)
+  }
+
   openModal() {
-    this.simpleModalService.addModal(TaskModalComponent, {task: this.task, projectid: this.project, projectworkers: this.projectworkers}).pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.emittedFunction.emit();
-    });
+    this.projectService.getTask(this.project, this.task.id).subscribe(res => {
+
+      let taskData = {
+        title: res.title,
+        description: res.description,
+        deadline: res.deadline,
+        category: res.category,
+        id: res.id,
+        workers: res.workers,
+        projectworkers: this.projectworkers
+      }
+
+      this.simpleModalService.addModal(TaskModalComponent, {taskData: taskData, projectid: this.project, projectworkers: this.projectworkers}).pipe(takeUntil(this.destroy$)).subscribe(() => {
+        this.emittedFunction.emit();
+      });
+    })
   }
 
 }

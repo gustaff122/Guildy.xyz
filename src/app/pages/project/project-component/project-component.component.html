@@ -1,17 +1,21 @@
 <div class="container-fluid" cdkDropListGroup>
   <div class="row">
     <h1
-      class="project-title text--title text-center mt-5 mb-3 d-flex justify-content-center align-items-center"
+      class="project-title text--title text-center mt-3 mt-xl-4 mt-xxl-5 mb-3 d-flex justify-content-center align-items-center"
     >
       {{ project.title }}
       <i (click)="openTitleEditModal()" class="ci-edit edit-icon ms-2"></i>
     </h1>
 
-    <div class="col-12 d-flex justify-content-end align-items-center mb-4">
-      <app-workers [project]="id" [workers]="workers"></app-workers>
+    <div class="col-12 d-flex justify-content-end align-items-center mb-xxl-4">
+      <app-workers
+        (emittedFunction)="setRoute()"
+        [project]="id"
+        [workers]="workers"
+      ></app-workers>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2">
       <app-column
         header="TODOs"
         [tasks]="project.todos"
@@ -20,7 +24,7 @@
         (emittedFunction)="setRoute()"
       ></app-column>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2">
       <app-column
         header="WIPs"
         [tasks]="project.wips"
@@ -29,7 +33,7 @@
         (emittedFunction)="setRoute()"
       ></app-column>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2">
       <app-column
         header="Completed"
         [tasks]="project.completed"

@@ -14,9 +14,20 @@
       <p class="workers--email">{{ worker.useremail }}</p>
     </div>
   </div>
-  <i
-    [ngClass]="selected ? 'ci-checkbox_square' : 'ci-checkbox'"
-    class="workers--check"
-    (click)="check()"
-  ></i>
+  <div class="checkbox">
+    <input
+      [(ngModel)]="selected"
+      (change)="emit()"
+      [value]="worker.useremail"
+      class="checkbox__control"
+      type="checkbox"
+      [checked]="selected"
+    />
+    <span class="checkbox__box checkbox--checked"
+      ><i class="ci-checkbox_square"></i
+    ></span>
+    <span class="checkbox__box checkbox--unchecked"
+      ><i class="ci-checkbox"></i
+    ></span>
+  </div>
 </div>

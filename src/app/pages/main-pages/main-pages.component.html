@@ -1,1 +1,37 @@
-<p>main-pages works!</p>
+<div class="container-fluid">
+  <div class="row col-10 offset-1">
+    <div class="col-12 p-4 pb-0">
+      <h1 style="font-size: 32px" class="text--logo">EasyManager</h1>
+      <p class="mt-5 text--nav_header mb-0">
+        Dear, {{ (user$ | async)?.username }}
+      </p>
+    </div>
+
+    <div
+      *ngFor="let project of projects"
+      class="col-12 col-sm-6 col-md-4 col-xl-3 px-4 mt-4"
+    >
+      <div class="project--container py-5">
+        <p class="project--name mb-0">{{ project.data.title }}</p>
+        <div class="d-flex align-items-center justify-content-center mt-4">
+          <i
+            (click)="deleteProject(project.project)"
+            class="ci-trash_empty me-4 project--icon"
+          ></i>
+          <i
+            [routerLink]="['/project', project.project]"
+            class="ci-folder_open project--icon"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3 px-4 mt-4">
+      <div (click)="create()" class="project--container_add py-5">
+        <p class="project--name mb-0">Create new...</p>
+        <div class="d-flex align-items-center justify-content-center mt-4">
+          <i class="ci-plus_square project--icon project--icon_neutral"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

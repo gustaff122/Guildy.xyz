@@ -5,9 +5,23 @@
     }
 
     &--content {
-        background-color: white;
-        border-radius: 10px;
+        
         height: 80vh;
+        overflow-y: scroll;
+
+        &_bg {
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: #EDF2F7;
+            border-radius: 100px;
+        }
     }
 
     &--name {
@@ -17,6 +31,11 @@
         border-radius: 100%;
         align-items: center;
         justify-content: center;
+
+        @media screen and (max-width: 1399px) {
+            width: 30px;
+            height: 30px;
+        }
     }
 
     &--logout {

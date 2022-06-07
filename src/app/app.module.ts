@@ -38,9 +38,7 @@ import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
     }),
     SharedModule
   ],
-  providers: [
-    { provide: RouteReuseStrategy, useClass: ProjectReuseStrategy },
-  ],
+
   bootstrap: [AppComponent],
   exports: [
   ]

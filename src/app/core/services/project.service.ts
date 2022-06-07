@@ -1,8 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { UserState } from 'src/app/shared/store/user.state';
 import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/project-interface';
 import { ProjectPatchName } from '../interfaces/project-patchname-interface';
@@ -12,6 +9,8 @@ import { SignService } from './sign.service';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ProjectService {
 
   private API_URL = environment.apiURL;
@@ -25,9 +24,11 @@ export class ProjectService {
       this.uid = res.uid!
     })
   }
+  
+
 
   createProject() {
-    return this.httpClient.post<Project>(`${this.API_URL}/projects/new`, {"uid": this.uid}).subscribe(res => console.log(res))
+    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid}, { responseType: 'text' })
   }
 
   getAllProjects(uid: string) {
@@ -55,15 +56,18 @@ export class ProjectService {
   }
 
   addProjectWorkers(project: string, worker: string) {
-    return this.httpClient.post<string>(`${this.API_URL}/projects/workers/`, {project: project, worker: worker})
+    return this.httpClient.post(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
   }
 
   removeProjectWorkers(project: string, worker: string) {
-    return this.httpClient.patch<string>(`${this.API_URL}/projects/workers/`, {project: project, worker: worker})
+    return this.httpClient.patch(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
   }
 
-  getTaskCategory(project: string, task: string) {
-    return this.httpClient.post(`${this.API_URL}/task/category/`, {project: project, task: task}, {responseType: 'text'})
+  getTask(project: string, task: string) {
+    return this.httpClient.post<TaskInterface>(`${this.API_URL}/task/data/`, {project: project, task: task})
+  }
+
+  deleteProject(project: string) {
+    return this.httpClient.post(`${this.API_URL}/projects/remove/`, {project: project}, {responseType: 'text'})
   }
 }
-``

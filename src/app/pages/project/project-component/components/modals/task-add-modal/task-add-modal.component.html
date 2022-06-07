@@ -1,18 +1,18 @@
 <form [formGroup]="form" class="container">
   <div class="col-10 offset-1 modal--container p-4 mt-5">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <input formControlName="title" type="text" class="w-100 modal--input" />
         <i class="ci-edit icon-edit"></i>
       </div>
-      <div class="col-4 offset-2">
+      <div class="col-12 col-md-4 offset-md-2">
         <input
           formControlName="deadline"
           type="date"
           class="w-100 modal--input text-uppercase"
         />
       </div>
-      <div class="col-12">
+      <div class="col-12 mt-3 mt-md-0">
         <div class="col-12">
           <textarea
             formControlName="description"

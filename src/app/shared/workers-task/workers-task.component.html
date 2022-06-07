@@ -1,10 +1,15 @@
-<div class="container-fluid ps-0">
+<form class="container-fluid ps-0">
   <div class="row">
-    <app-worker *ngFor="let worker of workers" [worker]="worker"></app-worker>
+    <app-worker
+      *ngFor="let worker of workers"
+      [worker]="worker"
+      (useremailEmit)="addToList($event)"
+    ></app-worker>
     <app-worker
       [selected]="false"
       *ngFor="let worker of unusedWorkers"
+      (useremailEmit)="addToList($event)"
       [worker]="worker"
     ></app-worker>
   </div>
-</div>
+</form>

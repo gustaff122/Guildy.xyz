@@ -46,3 +46,16 @@
     position: relative;
     float: right;
 }
+
+.project {
+    &--remove {
+        font-size: 22px;
+        color: var(--dark-primary);
+        transition: color 0.25s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--lava)
+        }
+    }
+}

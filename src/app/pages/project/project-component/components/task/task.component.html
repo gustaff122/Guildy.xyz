@@ -2,8 +2,10 @@
   <div class="d-flex justify-content-between align-items-center">
     <h1 class="text--task_header m-0">{{ task?.title }}</h1>
     <div class="d-flex align-items-center">
-      <p class="m-0 text-center text--warning me-2">{{ task?.deadline }}</p>
-      <i class="ci-error icon-warning"></i>
+      <p class="m-0 text-center text--warning me-1">
+        {{ task?.deadline | date: "dd/MM/yyyy" }}
+      </p>
+      <i class="ci-clock icon-warning"></i>
     </div>
   </div>
 
@@ -18,7 +20,7 @@
       <p
         [ngStyle]="{ 'background-color': worker.color }"
         *ngFor="let worker of task?.workers"
-        class="task--user text--name p-4 m-0 me-2"
+        class="task--user text--name m-0 me-2"
       >
         {{ worker.username || "" | initials }}
       </p>

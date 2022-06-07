@@ -23,8 +23,8 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
   ) {
     super()
     this.form = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
+      title: ['', [Validators.required, Validators.maxLength(48)]],
+      description: ['', [Validators.required, Validators.maxLength(1024)]],
       deadline: ['', Validators.required],
       category: []
     })

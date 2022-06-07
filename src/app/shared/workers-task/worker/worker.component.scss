@@ -22,10 +22,32 @@
         font-size: 13px;
         color: var(--dark-secondary)
     }
+}
 
-    &--check {
-        font-size: 28px;
-        color: var(--dark-secondary);
+.checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &__control {
+        opacity: 0;
         cursor: pointer;
+        z-index: 10;
+        width: 20px;
+        height: 20px;
     }
+
+    &__box {
+        font-size: 28px;
+        position: absolute;
+        transform: translateY(2px) translateX(-3px);
+    }
+
+    &--checked {
+        opacity: 0
+    }
+}
+
+.checkbox__control:checked ~ .checkbox--checked {
+    opacity: 1;
 }

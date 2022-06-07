@@ -9,14 +9,16 @@ import { ProjectService } from 'src/app/core/services/project.service';
   selector: 'app-task-modal',
   templateUrl: './task-modal.component.html',
   styleUrls: ['./task-modal.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskModalComponent extends SimpleModalComponent<any, string> implements OnInit {
 
-@Input() task!: TaskInterface
+@Input() taskData!: TaskInterface;
 @Input() projectid!: string;
 @Input() projectworkers: Array<User> = []
 
+public patchedWorkers: Array<string> = []
+
+public task!: TaskInterface
 public form: FormGroup
 
   constructor(
@@ -25,8 +27,8 @@ public form: FormGroup
   ) {
     super()
     this.form = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
+      title: ['', [Validators.required, Validators.maxLength(48)]],
+      description: ['', [Validators.required, Validators.maxLength(1024)]],
       deadline: ['', Validators.required],
       category: [],
       id: [],
@@ -35,32 +37,28 @@ public form: FormGroup
   }
   
   ngOnInit(): void {
-    let workers: Array<string> = []
-    for (let worker of this.task.workers) {
-      workers.push(worker.uid!)
-    }
-
-    this.form.patchValue({
-      title: this.task.title,
-      description: this.task.description,
-      deadline: this.task.deadline,
-      category: this.task.category,
-      id: this.task.id,
-      workers: workers
-    })
-
-    this.projectService.getTaskCategory(this.projectid, this.task.id).subscribe(res => {
       this.form.patchValue({
-        category: res,
+        title: this.taskData.title,
+        description: this.taskData.description,
+        deadline: this.taskData.deadline,
+        category: this.taskData.category,
+        id: this.taskData.id,
+        workers: this.taskData.workers
       })
-    })
-
     
   }
 
+  getWorkers(list: Array<string>) {
+    this.patchedWorkers = list;
+  }
+
   patchTask() {
-    this.projectService.patchTask(this.form.value, this.projectid).subscribe()
-    this.close()
+    this.form.patchValue({
+      workers: this.patchedWorkers
+    })
+    this.projectService.patchTask(this.form.value, this.projectid).subscribe(() => {
+      this.close()
+    })
   }
 
   closeModal() {
