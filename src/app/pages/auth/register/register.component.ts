@@ -10,6 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class RegisterComponent {
 
   public form: FormGroup
+  public toggle = 'password'
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,8 +27,16 @@ export class RegisterComponent {
 
   onSubmit() {
     this.UserService.SignUp(this.form.value).then(() => {
-      this.router.navigate(['project'])
+      this.router.navigate(['welcome'])
     })
+  }
+
+  onToggle() {
+    if (this.toggle == 'password') {
+      this.toggle = 'text'
+    } else {
+      this.toggle = 'password'
+    }
   }
 
 }

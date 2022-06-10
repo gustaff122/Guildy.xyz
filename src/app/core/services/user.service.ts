@@ -21,13 +21,15 @@ export class UserService {
 
 
   completeRegister(data: User) {
-    return this.httpClient.post<User>(`${this.API_URL}/users/register/`, data).subscribe()
+    return this.httpClient.post(`${this.API_URL}/users/register/`, data, {responseType: 'text'})
   }
 
   SignIn(data: User) {
     return this.fireAuth.signInWithEmailAndPassword(data.useremail, data.password!).then(() => {
       this.store.dispatch(new FetchUser())
-    })
+    }).catch((error) => {
+      window.alert(error.message);
+    });
   }
 
   SignUp(data: User) {
@@ -38,10 +40,12 @@ export class UserService {
         "username": data.username,
       }
 
-        this.completeRegister(userData)
+        this.completeRegister(userData).subscribe()
     }).then(() => {
       this.store.dispatch(new FetchUser())
-    })
+    }).catch((error) => {
+      window.alert(error.message);
+    });
   }
 
   SignOut() {

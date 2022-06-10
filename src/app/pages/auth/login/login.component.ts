@@ -10,6 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class LoginComponent {
 
   public form: FormGroup;
+  public toggle = 'password'
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,6 +27,14 @@ export class LoginComponent {
     this.UserService.SignIn(this.form.value).then(() => {
       this.router.navigate(['project'])
     })
+  }
+
+  onToggle() {
+    if (this.toggle == 'password') {
+      this.toggle = 'text'
+    } else {
+      this.toggle = 'password'
+    }
   }
 
 }

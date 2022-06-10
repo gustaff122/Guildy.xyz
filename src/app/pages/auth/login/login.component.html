@@ -1,7 +1,7 @@
 <div class="container main-container">
   <h1 class="text-center auth--header">EasyManager</h1>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
-    <div class="col-4 offset-4 auth--container px-5 pt-5 pb-4">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row px-2">
+    <div class="col-12 col-md-4 offset-md-4 auth--container px-md-5 pt-5 pb-4">
       <div class="col-12 mb-3">
         <input
           class="auth--input w-100"
@@ -15,11 +15,11 @@
       <div class="col-12 mb-4">
         <input
           class="auth--input w-100"
-          type="password"
+          [type]="toggle"
           placeholder="Password"
           formControlName="password"
         />
-        <i class="auth--icon ci-show"></i>
+        <i (click)="onToggle()" class="auth--icon auth--icon_pass ci-show"></i>
       </div>
 
       <div class="col-12">

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'auth', component: AppComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToProject }, loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
   { path: 'project', component: MainLayoutComponent, resolve: [MainLayoutResolver], runGuardsAndResolvers: 'always', canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToAuth }, loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule) },
-  { path: 'welcome', resolve: [MainPagesResolver], loadChildren: () => import('./pages/main-pages/main-pages.module').then(m => m.MainPagesModule) },
+  { path: 'welcome', resolve: [MainPagesResolver], canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToAuth }, loadChildren: () => import('./pages/main-pages/main-pages.module').then(m => m.MainPagesModule) },
   
 ];
 

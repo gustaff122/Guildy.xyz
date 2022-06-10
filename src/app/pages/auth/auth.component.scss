@@ -37,6 +37,10 @@
         color: var(--dark-primary);
         position: relative;
         float: right;
+
+        &_pass {
+            cursor: pointer;
+        }
     }
 
     &--btn {

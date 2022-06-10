@@ -68,6 +68,7 @@ export class UserState {
   Logout(ctx: StateContext<IUserStateModel>, action: Logout) {
     ctx.patchState({
       isLogged: false,
+      user: null
     });
     this.ngZone.run(() => this.router.navigateByUrl('/auth/login'));
     return null;

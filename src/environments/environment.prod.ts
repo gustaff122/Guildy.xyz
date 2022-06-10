@@ -9,5 +9,5 @@ export const environment = {
     appId: "1:656615179598:web:0f6c3e5f5576f5771f4a1f",
     measurementId: "G-M50K2DP91F"
   },
-  apiURL: 'http://srv10.mikr.us:40181'
+  apiURL: 'https://manback.bieda.it'
 };
