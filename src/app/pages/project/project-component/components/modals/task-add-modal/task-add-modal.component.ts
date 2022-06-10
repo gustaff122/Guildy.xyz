@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SimpleModalComponent } from 'ngx-simple-modal';
+import { ToastrService } from 'ngx-toastr';
 import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({
@@ -15,11 +16,11 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
 @Input() id!: string;
 
   public form: FormGroup
-  public showError = false
 
   constructor(
     private formBuilder: FormBuilder,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private toastr: ToastrService
   ) {
     super()
     this.form = this.formBuilder.group({
@@ -43,7 +44,7 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
         this.close()
       })
     } else {
-      this.showError = true
+      this.toastr.error('Fields: title, deadline and description are necessary!')
     }
     
    }

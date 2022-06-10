@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -10,23 +11,33 @@ import { UserService } from 'src/app/core/services/user.service';
 export class LoginComponent {
 
   public form: FormGroup;
-  public toggle = 'password'
+  public toggle = 'password';
 
   constructor(
     private formBuilder: FormBuilder,
     private UserService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.form = this.formBuilder.group({
-      useremail: [],
-      password: []
+      useremail: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
   onSubmit() {
-    this.UserService.SignIn(this.form.value).then(() => {
-      this.router.navigate(['project'])
-    })
+    if (this.form.valid) {
+      let email = (this.form.value.useremail).replace(/\s/g, '');
+      this.form.patchValue({
+        useremail: email
+      })
+
+      this.UserService.SignIn(this.form.value).then(() => {
+        this.router.navigate(['project'])
+      })
+    } else {
+      this.toastr.error('Fields are required')
+    }
   }
 
   onToggle() {

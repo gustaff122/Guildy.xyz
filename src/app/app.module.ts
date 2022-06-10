@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
     NgxsModule.forRoot([UserState], {
       developmentMode: !environment.production,
     }),
+    ToastrModule.forRoot(),
     SharedModule
   ],
 
