@@ -19,29 +19,8 @@ export class MainPagesComponent {
   public projects = this.activatedRoute.snapshot.data[0]
 
   constructor(
-    private projectService: ProjectService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
   ) { }
 
-  removeFromList(id: string) {
-    for (let i = 0; i < this.projects.length; i++) {
-      if (this.projects[i].project == id) {
-        this.projects.splice(i, 1)
-      }
-    }
-  }
-
-  create() {
-    this.projectService.createProject().subscribe(res => {
-      this.router.navigate(['/project', res])
-    })
-  }
-
-  deleteProject(id: string) {
-    this.projectService.deleteProject(id).subscribe(() => {
-      this.removeFromList(id)
-    })
-  }
 
 }
