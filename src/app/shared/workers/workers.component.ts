@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { Subject, takeUntil } from 'rxjs';
+import { max, Subject, takeUntil } from 'rxjs';
 import { User } from 'src/app/core/interfaces/user-interface';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { WorkersModalComponent } from './workers-modal/workers-modal.component';
@@ -10,7 +10,7 @@ import { WorkersModalComponent } from './workers-modal/workers-modal.component';
   templateUrl: './workers.component.html',
   styleUrls: ['./workers.component.scss'],
 })
-export class WorkersComponent implements OnInit {
+export class WorkersComponent {
 
   @Output() emittedFunction  = new EventEmitter<any>();
   @Input() workers: Array<User> = [];
@@ -22,9 +22,7 @@ export class WorkersComponent implements OnInit {
     private simpleModalService: SimpleModalService
   ) { }
 
-    ngOnInit(): void {
-      (this.workers)
-    }
+
 
   ngOnDestroy(): void {
     this.destroy$.next();

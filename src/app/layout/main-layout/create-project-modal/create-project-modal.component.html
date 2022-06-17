@@ -1,6 +1,6 @@
 <form
   [formGroup]="form"
-  (submit)="patchProjectName()"
+  (submit)="createProject()"
   class="container modal--container col-12 col-md-10 col-xl-4 offset-md-1 offset-xl-4 p-5 mt-5 position-relative"
 >
   <i
@@ -12,14 +12,14 @@
       <input type="text" class="w-100 modal--input" formControlName="name" />
       <i class="ci-edit icon-edit"></i>
     </div>
-    <div class="col-12 d-flex justify-content-between align-items-center mt-4">
-      <i (click)="removeProject()" class="ci-trash_full project--remove"></i>
+    <div class="col-12 d-flex justify-content-end align-items-center mt-4">
       <div>
         <button
+          [disabled]="disableAction"
           type="submit"
           class="modal--btn modal--btn_save py-3 px-3 px-md-5"
         >
-          <i class="ci-check_bold me-2"></i>Save
+          <i class="ci-plus me-1"></i>New Project
         </button>
       </div>
     </div>

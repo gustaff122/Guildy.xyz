@@ -1,27 +1,25 @@
 <form
   (submit)="patchTask()"
   [formGroup]="form"
-  class="container modal--container p-4 mt-5"
+  class="container modal--container p-5 mt-5 position-relative"
 >
+  <i
+    (click)="closeModal()"
+    class="ci-close_small position-absolute modal--close"
+  ></i>
   <div class="row">
-    <div class="col-12 col-md-6 px-0">
+    <div class="col-12 col-lg-6 px-0">
       <input type="text" class="w-100 modal--input" formControlName="title" />
       <i class="ci-edit icon-edit"></i>
     </div>
-    <div class="col-12 col-md-4 offset-md-2 px-0">
+    <div class="col-12 col-lg-4 offset-lg-2 px-0">
       <input
         formControlName="deadline"
         type="date"
         class="w-100 modal--input text-uppercase"
       />
     </div>
-    <div class="col-12 col-md-6 pe-0 mt-4 mt-md-0 ps-0">
-      <div class="col-12">
-        <p class="modal--tag text--task_tag px-4 py-1 float-start">
-          {{ taskData.id }}
-        </p>
-      </div>
-
+    <div class="col-12 col-lg-6 pe-0 mt-4 mt-lg-0 ps-0">
       <div class="col-12">
         <textarea
           formControlName="description"
@@ -30,7 +28,7 @@
         <i class="ci-edit icon-edit"></i>
       </div>
     </div>
-    <div class="col-12 col-md-6 mt-4 pe-0 ps-md-5">
+    <div class="col-12 col-lg-6 mt-2 pe-0 ps-lg-5">
       <p class="text-start text--task_header" style="color: black">Workers</p>
       <app-workers-task
         [allWorkers]="projectworkers"
@@ -40,13 +38,10 @@
     </div>
     <div class="col-12 row m-0 pe-0 mt-3 mt-md-0">
       <div
-        class="col-12 d-flex justify-content-between justify-content-md-end align-items-center"
+        class="col-12 d-flex justify-content-center justify-content-lg-end align-items-center"
       >
-        <button (click)="closeModal()" class="modal--btn modal--btn_discard">
-          Discard Changes...
-        </button>
-        <button type="submit" class="modal--btn modal--btn_save ms-3">
-          Save Changes...
+        <button type="submit" class="modal--btn modal--btn_save py-3 px-5">
+          <i class="ci-check_bold me-2"></i>Save
         </button>
       </div>
     </div>

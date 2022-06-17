@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { ToastrService } from 'ngx-toastr';
 import { FetchUser, Logout } from 'src/app/shared/store/user.actions';
@@ -18,7 +19,7 @@ export class UserService {
     private fireAuth: AngularFireAuth,
     private httpClient: HttpClient,
     private store: Store,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
 
@@ -47,8 +48,9 @@ export class UserService {
       }
       if (e.code == 'auth/weak-password') {
         this.toastr.error('Password should be at least 6 characters.')
-      } else {
-        this.toastr.error(e)
+      }
+      if (e.code == 'auth/email-already-in-use') {
+        this.toastr.error("Email is already in use.")
       }
     })
     .then((user) => {

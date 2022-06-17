@@ -22,8 +22,8 @@ export class RegisterComponent {
 
     this.form = this.formBuilder.group({
       useremail: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required, Validators.maxLength(42)]],
+      password: ['', [Validators.required, Validators.maxLength(42)]]
     })
   }
 
@@ -34,10 +34,10 @@ export class RegisterComponent {
         useremail: email
       })
       this.UserService.SignUp(this.form.value).then(() => {
-        this.router.navigate(['/welcome'])
+        this.router.navigate(['/project'])
       })
     } else {
-      this.toastr.error('Fields: e-mail, name and password are necessary')
+      this.toastr.error('Fields are necessary')
     }
     
   }

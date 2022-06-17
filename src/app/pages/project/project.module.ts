@@ -13,6 +13,10 @@ import { InitialsPipe } from 'src/app/core/pipes/initials.pipe';
 import { TaskAddModalComponent } from './project-component/components/modals/task-add-modal/task-add-modal.component';
 import { TitleEditModalComponent } from './project-component/components/modals/title-edit-modal/title-edit-modal.component';
 import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guard.guard';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CreateProjectModalComponent } from '../../layout/main-layout/create-project-modal/create-project-modal.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -24,6 +28,8 @@ import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guar
     ProjectComponentComponent,
     TaskAddModalComponent,
     TitleEditModalComponent,
+    CreateProjectModalComponent,
+    WelcomeComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +37,9 @@ import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guar
     SimpleModalModule,
     SimpleModalModule.forRoot({container: document.body}),
     SharedModule,
-  ]
+    OrderModule,
+    NgxSpinnerModule
+  ],
+  providers: [DatePipe]
 })
 export class ProjectModule { }

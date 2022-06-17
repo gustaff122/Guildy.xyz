@@ -1,11 +1,16 @@
-<form class="container mt-5">
-  <div class="modal--container col-6 offset-3 px-5 py-4">
+<form class="container-fluid mt-5">
+  <div
+    class="modal--container col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4 py-4 px-3 px-md-5 position-relative"
+  >
     <div class="row">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="text--category">Workers.</h1>
-        <i (click)="closeModal()" class="modal--close ci-off_outline_close"></i>
+        <h1 class="text--category">Members.</h1>
+        <i
+          (click)="closeModal()"
+          class="modal--close ci-close_small position-absolute"
+        ></i>
       </div>
-      <div class="col-12 mt-4 position-relative">
+      <div class="col-12 mt-2 position-relative">
         <p class="modal--invalid position-absolute">
           {{ invalid }}
         </p>
@@ -38,13 +43,13 @@
           class="ci-user_close workers--remove"
         ></i>
       </div>
-      <div>
+      <div class="mt-4 w-100 d-flex justify-content-center">
         <button
           type="submit"
           (click)="addWorker()"
           class="modal--btn px-5 py-3"
         >
-          Invite co-worker...
+          <i class="ci-user_plus me-1"></i>Add Member
         </button>
       </div>
     </div>

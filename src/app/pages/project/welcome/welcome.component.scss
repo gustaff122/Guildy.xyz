@@ -1,0 +1,34 @@
+.box {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 20em;
+        color: transparent;
+        background-clip: text;
+        animation: colorChanging 5s linear infinite;
+        background-size: 500%;
+        background-image: linear-gradient(to right, #009fff, #ec2f4b);
+
+        p {
+            font-family: 'Poppins';
+            font-size: 4rem;
+        }
+    }
+}
+
+@keyframes colorChanging {
+    0% {
+        background-position: 0 100%;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}

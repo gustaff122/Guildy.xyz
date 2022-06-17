@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
-import { Observable, switchMap, take } from 'rxjs';
+import { SimpleModalService } from 'ngx-simple-modal';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project-interface';
+import { MainLayoutService } from 'src/app/core/services/main-layout.service';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { SignService } from 'src/app/core/services/sign.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { UserState } from 'src/app/shared/store/user.state';
+import { CreateProjectModalComponent } from './create-project-modal/create-project-modal.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -20,34 +23,32 @@ export class MainLayoutComponent {
 
   public userProjects = this.activatedRoute.snapshot.data[0]
 
+  private destroy$: Subject<void> = new Subject<void>();
+
   constructor(
     private userService: UserService,
-    private projectService: ProjectService,
+    private simpleModalService: SimpleModalService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private fireAuth: AngularFireAuth,
+    private mainLayoutService: MainLayoutService
   ) {}
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  ngAfterViewInit() {
+    this.mainLayoutService.subject.subscribe((data) => {
+      this.userProjects = data
+    })
+  }
+
+  createProject() {
+    this.simpleModalService.addModal(CreateProjectModalComponent, ).pipe(takeUntil(this.destroy$)).subscribe()
+  }
 
   logOut() {
     this.userService.SignOut()
   }
 
-  createProject() {
-    this.projectService.createProject().subscribe(uid => {
-      this.router.navigate([`/project/${uid}`]);
-    })
-    this.setRoute()
-  }
-
-  setRoute() {
-    let uid = ''
-    this.fireAuth.authState.pipe(take(1), switchMap(res => {
-      return uid = res!.uid;
-    }))
-
-    this.projectService.getAllProjects(uid).subscribe((res) => {
-      this.userProjects = res
-    })
-  }
 }

@@ -23,12 +23,14 @@ export class ProjectAccessGuardGuard implements CanActivate {
       let projects: Array<string> = [];
       return this.signService.getSelf().toPromise().then((res) => {
         projects = res!.Projects!;
+        projects.push('welcome')
+
         let includes = projects.includes(route.params['id'])
 
         if (includes == true) {
           return true
         } else {
-          this.router.navigate(['/welcome']);
+          this.router.navigate(['/project']);
           return true
         }
       })

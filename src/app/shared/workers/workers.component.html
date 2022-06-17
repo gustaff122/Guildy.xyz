@@ -1,14 +1,11 @@
-<h4 class="workers--header text-start d-flex align-items-center">
-  Workers
-  <i
-    style="cursor: pointer"
-    (click)="openModal()"
-    class="ci-plus_circle_outline ms-1"
-  ></i>
-</h4>
+<div class="d-flex align-items-center justify-content-between">
+  <h1 class="workers--header text-start d-flex align-items-center">Members</h1>
+  <h2 (click)="openModal()" class="workers--view mb-0">View all</h2>
+</div>
+
 <div class="d-flex">
   <p
-    *ngFor="let worker of workers"
+    *ngFor="let worker of workers.slice(0, 3)"
     [ngStyle]="{ 'background-color': worker.color }"
     class="workers--user text--name me-2"
   >

@@ -8,7 +8,7 @@ import { SignService } from "src/app/core/services/sign.service";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 
 @Injectable({ providedIn: 'root' })
-export class MainLayoutResolver implements Resolve<Project> {
+export class MainLayoutResolver implements Resolve<Project[]> {
   constructor(
     private projectService: ProjectService,
     private fireAuth: AngularFireAuth,
@@ -17,7 +17,7 @@ export class MainLayoutResolver implements Resolve<Project> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<Project> {
+  ): Observable<Project[]> {
     return this.fireAuth.authState.pipe(take(1), switchMap(res => {
       return this.projectService.getAllProjects(res!.uid)
     }))

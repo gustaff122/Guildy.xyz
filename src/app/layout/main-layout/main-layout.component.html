@@ -1,95 +1,109 @@
-<div class="d-flex align-items-center d-lg-none mt-2">
-  <i (click)="logOut()" class="text--link m-0 nav--logout ci-log_out ms-1"></i>
-  <h1
-    style="cursor: pointer"
-    [routerLink]="['/welcome']"
-    class="text--logo mb-0 ms-2"
-  >
-    EasyManager
-  </h1>
-</div>
-
 <div class="container-fluid">
   <div class="row">
-    <div
-      class="col-2 nav--container p-1 p-xl-3 d-none d-lg-flex flex-column justify-content-between"
-    >
-      <div class="d-flex justify-content-between align-items-center mt-2">
-        <h1
-          style="cursor: pointer"
-          [routerLink]="['/welcome']"
-          class="text--logo m-0"
-        >
-          EasyManager
-        </h1>
-
-        <i
-          (click)="logOut()"
-          class="text--link m-0 nav--logout ci-log_out ms-1"
-        ></i>
+    <div class="col-12">
+      <div
+        class="d-lg-none hamburger--btn"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample"
+      >
+        <i class="ci-hamburger"></i>
       </div>
+    </div>
 
-      <div class="p-1 nav--content_bg">
-        <div
-          class="col-12 nav--content py-3 px-xxl-3 d-flex justify-content-between flex-column"
-        >
+    <div class="px-0 collapse col-12 d-lg-none" id="collapseExample">
+      <div class="hamburger--container col-12">
+        <div class="w-100 text-end pt-3 pe-3">
           <div>
-            <div class="d-flex align-items-center">
-              <img
-                width="42"
-                height="31"
-                src="../../../assets/icon-briefcase.svg"
-                alt="briefcase"
-              />
-              <h1 class="text--nav_header ms-1 m-0">My Projects</h1>
-            </div>
-            <h3
-              *ngFor="let project of userProjects"
-              class="text--nav_link ms-4 mt-3"
-            >
-              <span [routerLink]="['/project', project.project]">
-                <i class="ci-sub_right me-1"></i>{{ project.data.title }}</span
-              >
-            </h3>
-            <h3
-              (click)="createProject()"
-              style="color: var(--orange); cursor: pointer"
-              class="text--nav_link ms-4 mt-3"
-            >
-              <i class="ci-sub_right me-1"></i>Create New...
-            </h3>
-          </div>
-          <div>
-            <div class="d-flex align-items-center">
-              <img
-                width="42"
-                height="31"
-                src="../../../assets/icon-about.svg"
-                alt="about"
-              />
-              <h1 class="text--nav_header ms-1 m-0">Błędy</h1>
-            </div>
-            <h3 class="text--nav_link ms-4 mt-3">
-              <i class="ci-sub_right me-1"></i>Znane nam
-            </h3>
-            <h3 class="text--nav_link ms-4 mt-3">
-              <i class="ci-sub_right me-1"></i>Wasze błędy
-            </h3>
+            <i (click)="logOut()" class="ci-log_out nav--logout_mobile"></i>
           </div>
         </div>
+        <a
+          routerLinkActive="active"
+          [routerLink]="['/welcome']"
+          class="d-flex align-items-center justify-content-center my-3 p-2 text--nav_link"
+        >
+          <i class="ci-info_circle_outline me-3"></i>
+          About Guildy.xyz
+        </a>
 
-        <div class="d-flex align-items-center mb-2">
-          <p
-            [ngStyle]="{ 'background-color': (user$ | async)?.color }"
-            class="nav--name text--name p-4 m-0"
+        <div class="nav--content">
+          <a
+            *ngFor="let project of userProjects"
+            class="text--nav_project p-2 d-block"
+            routerLinkActive="active"
           >
-            {{ (user$ | async)?.username | initials }}
-          </p>
-          <h4 class="text--name m-0 ms-2">{{ (user$ | async)?.username }}</h4>
+            <span
+              class="d-flex align-items-center justify-content-center"
+              [routerLink]="['/project', project.project]"
+            >
+              <i class="ci-note me-1"></i>{{ project.data.title }}</span
+            >
+          </a>
+          <div class="w-100 d-flex justify-content-center pb-4">
+            <button
+              (click)="createProject()"
+              class="nav--btn py-3 px-5"
+              type="button"
+            >
+              <i class="ci-plus me-1"></i>New Project
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-10">
+
+    <div
+      class="col-3 col-xxl-2 nav--container p-1 p-xl-4 d-none d-lg-flex flex-column justify-content-between"
+    >
+      <div>
+        <div
+          class="d-flex align-items-center justify-content-between mb-2 nav--user_container py-2 px-3 mt-3 mb-4"
+        >
+          <div class="d-flex align-items-center">
+            <p
+              [ngStyle]="{ 'background-color': (user$ | async)?.color }"
+              class="nav--name text--name m-0"
+            >
+              {{ (user$ | async)?.username | initials }}
+            </p>
+            <h4 class="text--username m-0 ms-2">
+              {{ (user$ | async)?.username }}
+            </h4>
+          </div>
+          <i (click)="logOut()" class="ci-log_out nav--logout"></i>
+        </div>
+
+        <a
+          routerLinkActive="active"
+          [routerLink]="['/welcome']"
+          class="d-flex align-items-center px-4 py-2 mb-5 text--nav_link"
+        >
+          <i class="ci-info_circle_outline me-3"></i>
+          About Guildy.xyz
+        </a>
+
+        <div class="nav--content pe-2">
+          <a
+            *ngFor="let project of userProjects"
+            class="text--nav_project px-4 py-2 d-block"
+            routerLinkActive="active"
+          >
+            <span
+              class="d-flex align-items-center"
+              [routerLink]="['/project', project.project]"
+            >
+              <i class="ci-note me-1"></i>{{ project.data.title }}</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <button (click)="createProject()" class="nav--btn py-3" type="button">
+        <i class="ci-plus me-1"></i>New Project
+      </button>
+    </div>
+    <div class="col-12 col-lg-9 col-xxl-10 offset-lg-3 offset-xxl-2">
       <router-outlet></router-outlet>
     </div>
   </div>

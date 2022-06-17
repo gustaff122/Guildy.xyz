@@ -17,8 +17,6 @@ export class WorkersTaskComponent implements OnInit {
 
   public workersList: Array<any> = []
 
-  constructor() {}
-
   addToList(newItem: any) {
     this.workersList.push(newItem)
 

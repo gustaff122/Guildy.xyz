@@ -1,49 +1,113 @@
 .nav {
     &--container {
-        background-color: var(--light-primary);
+        position: fixed;
+        left: 0;
+
+        background-color: var(--smoke);
         height: 100vh;
+        box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+
     }
 
     &--content {
         
-        height: 83vh;
+        height: calc(68vh - 51px);
         overflow-y: scroll;
 
+        @media screen and (max-width: 991px) {
+            height: auto;
+        }
+
         &_bg {
-            background-color: white;
             border-radius: 10px;
         }
 
         &::-webkit-scrollbar {
-            width: 10px;
+            width: 5px;
         }
         
         &::-webkit-scrollbar-thumb {
-            background: #EDF2F7;
+            background: white;
             border-radius: 100px;
+        }
+    }
+
+    &--user {
+        &_container {
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
         }
     }
 
     &--name {
         display: flex;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
         align-items: center;
         justify-content: center;
 
-        @media screen and (max-width: 1399px) {
-            width: 30px;
-            height: 30px;
-        }
+    }
+
+    &--btn {
+        border: none;
+        outline: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Poppins';
+        background-color: var(--dark-blue);
+
+        border-radius: 7px;
+        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+        
+        
     }
 
     &--logout {
         cursor: pointer;
+        font-size: 18px;
         transition: color 0.1s ease-in-out;
+
+        &_mobile {
+            cursor: pointer;
+            font-size: 24px;
+        }
 
         &:hover {
             color: var(--lava)
         }
     }
+}
+
+.active {
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+}
+
+.hamburger {
+    &--btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: black;
+        z-index: 100;
+    }
+
+    &--container {
+        width: 100%;
+        background-color: var(--smoke);
+    }
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit
 }

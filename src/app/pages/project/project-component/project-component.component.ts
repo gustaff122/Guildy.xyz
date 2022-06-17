@@ -34,6 +34,8 @@ export class ProjectComponentComponent implements OnInit {
         this.workers = this.project.workers
       })
     })
+
+    
   }
 
   ngOnInit(): void {

@@ -1,25 +1,24 @@
-<div (click)="openModal()" class="col-12 task--container p-3 mb-3">
-  <div class="d-flex justify-content-between align-items-center">
-    <h1 class="text--task_header m-0">{{ task?.title }}</h1>
-    <div class="d-flex align-items-center">
-      <p class="m-0 text-center text--warning me-1">
-        {{ task?.deadline | date: "dd/MM/yyyy" }}
-      </p>
-      <i class="ci-clock icon-warning"></i>
-    </div>
+<div class="col-12 task--container p-3 mb-3">
+  <div class="mb-2 d-flex justify-content-end">
+    <i
+      style="cursor: pointer"
+      (click)="openModal()"
+      class="ci-more_horizontal"
+    ></i>
   </div>
 
-  <p class="task--tag text--task_tag px-4 py-1 mt-2">{{ task?.id }}</p>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="text--task_header m-0">{{ task?.title }}</h1>
+  </div>
 
-  <div class="col-12 d-flex justify-content-end">
-    <!--<div class="d-flex align-items-end">
-        <i class="ci-chat_alt icon-comments"></i>
-        <p class="m-0 ms-1 text--task_comments">4</p>
-      </div>-->
+  <div class="col-12 d-flex justify-content-between align-items-center mt-3">
+    <p class="d-flex align-items-center task--deadline">
+      <i class="ci-clock me-1"></i> {{ task?.deadline | date: "MMM d, yyyy" }}
+    </p>
     <div class="d-flex">
       <p
         [ngStyle]="{ 'background-color': worker.color }"
-        *ngFor="let worker of task?.workers"
+        *ngFor="let worker of task?.workers!.slice(0, 3)"
         class="task--user text--name m-0 me-2"
       >
         {{ worker.username || "" | initials }}

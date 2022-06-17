@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SimpleModalComponent } from 'ngx-simple-modal';
+import { ToastrService } from 'ngx-toastr';
 import { TaskInterface } from 'src/app/core/interfaces/task-interface';
 import { User } from 'src/app/core/interfaces/user-interface';
 import { ProjectService } from 'src/app/core/services/project.service';
@@ -23,16 +24,18 @@ public form: FormGroup
 
   constructor(
     private projectService: ProjectService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) {
     super()
     this.form = this.formBuilder.group({
       title: ['', [Validators.required, Validators.maxLength(48)]],
-      description: ['', [Validators.required, Validators.maxLength(1024)]],
+      description: ['', [Validators.maxLength(1024)]],
       deadline: ['', Validators.required],
       category: [],
       id: [],
-      workers: []
+      workers: [],
+      position: []
     })
   }
   
@@ -43,8 +46,10 @@ public form: FormGroup
         deadline: this.taskData.deadline,
         category: this.taskData.category,
         id: this.taskData.id,
-        workers: this.taskData.workers
+        workers: this.taskData.workers,
+        position: this.taskData.position
       })
+
     
   }
 
@@ -56,9 +61,14 @@ public form: FormGroup
     this.form.patchValue({
       workers: this.patchedWorkers
     })
-    this.projectService.patchTask(this.form.value, this.projectid).subscribe(() => {
-      this.close()
-    })
+
+    if (this.form.valid) {
+      this.projectService.patchTask(this.form.value, this.projectid).subscribe(() => {
+        this.close()
+      })
+    } else {
+      this.toastr.error("Title is required (max 48 characters). Description should not have more than 1024 characters.")
+    }
   }
 
   closeModal() {

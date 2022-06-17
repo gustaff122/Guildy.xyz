@@ -7,6 +7,7 @@ import { TaskAddModalComponent } from '../modals/task-add-modal/task-add-modal.c
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';   
 import { ProjectService } from 'src/app/core/services/project.service';
 import { User } from 'src/app/core/interfaces/user-interface';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-column',
@@ -18,6 +19,7 @@ export class ColumnComponent {
   @ViewChild('dropListContainer') dropListContainer?: ElementRef;
 
   @Output() emittedFunction  = new EventEmitter<any>();
+  @Output() changeCategory = new EventEmitter<any>();
 
   dropListReceiverElement?: HTMLElement;
   dragDropInfo?: {
@@ -32,29 +34,33 @@ export class ColumnComponent {
 
   private destroy$: Subject<void> = new Subject<void>();
 
+
   constructor(
     private simpleModalService: SimpleModalService,
     private projectService: ProjectService
   ) {
-
+    
   }
 
-  
 
   drop(event: CdkDragDrop<any>) {
     let container = parseInt((event.container.id).slice(-1)) + 1;
+    let task = event.previousContainer.data[event.previousIndex];
     
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      let task = event.previousContainer.data[event.previousIndex];
 
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
+      for (let el of event.container.data) {
+        if (el.position <= event.currentIndex + 1 && el.position > event.previousIndex + 1 && el != task) {
+          task.position = event.currentIndex + 1
+          el.position = el.position - 1
+        }
+        if (el.position >= event.currentIndex + 1 && el.position < event.previousIndex + 1 && el != task) {
+          task.position = event.currentIndex + 1
+          el.position = el.position + 1
+        }
+      }
+
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       if (container % 3 == 1) {
         this.projectService.moveTask(task, this.projectid, "todos").subscribe()
       }
@@ -62,6 +68,43 @@ export class ColumnComponent {
         this.projectService.moveTask(task, this.projectid, "wips").subscribe()
       }
       if (container % 3 == 0) {
+        this.projectService.moveTask(task, this.projectid, "completed").subscribe()
+      }
+      
+    } else {
+
+      for (let el of event.previousContainer.data) {
+        if (el.position > event.previousIndex + 1) {
+          el.position = el.position - 1
+        }
+      }
+
+      for (let el of event.container.data) {
+        if (el.position >= event.currentIndex + 1) {
+          el.position = el.position + 1
+        }
+      }
+
+      task.position = event.currentIndex + 1
+
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+
+      if (container % 3 == 1) {
+        task.category = "todos"
+        this.projectService.moveTask(task, this.projectid, "todos").subscribe()
+        
+      }
+      if (container % 3 == 2) {
+        task.category = "wips"
+        this.projectService.moveTask(task, this.projectid, "wips").subscribe()
+      }
+      if (container % 3 == 0) {
+        task.category = "completed"
         this.projectService.moveTask(task, this.projectid, "completed").subscribe()
       }
     }
@@ -72,7 +115,7 @@ export class ColumnComponent {
   }
 
   openModal() {
-    this.simpleModalService.addModal(TaskAddModalComponent, {header: this.header, id: this.projectid }).pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.simpleModalService.addModal(TaskAddModalComponent, {header: this.header, id: this.projectid, projectworkers: this.projectworkers }).pipe(takeUntil(this.destroy$)).subscribe(() => {
      this.emittedFunction.emit();
     });
   }

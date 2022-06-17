@@ -4,6 +4,7 @@ import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guar
 import { ProjectComponentComponent } from './project-component/project-component.component';
 import { ProjectComponentResolver } from './project-component/project-component.resolver';
 import { ProjectComponent } from './project.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome'},
@@ -11,7 +12,6 @@ const routes: Routes = [
     { path: ':id', resolve: [ProjectComponentResolver], canActivate: [ProjectAccessGuardGuard], component: ProjectComponentComponent},
   ],
 }
- 
 ];
 
 @NgModule({

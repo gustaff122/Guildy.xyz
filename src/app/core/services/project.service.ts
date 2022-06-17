@@ -27,12 +27,12 @@ export class ProjectService {
   
 
 
-  createProject() {
-    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid}, { responseType: 'text' })
+  createProject(name: string) {
+    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid, "title": name}, { responseType: 'text' })
   }
 
   getAllProjects(uid: string) {
-    return this.httpClient.get<Project>(`${this.API_URL}/projects/userprojects/${uid}`)
+    return this.httpClient.get<Project[]>(`${this.API_URL}/projects/userprojects/${uid}`)
   }
 
   getProject(id: string) {

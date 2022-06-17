@@ -12,7 +12,7 @@ import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
   styleUrls: ['./task.component.scss'],
 
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent {
 
   @Input()
   task!: TaskInterface;
@@ -28,32 +28,20 @@ export class TaskComponent implements OnInit {
 
   constructor(
     private simpleModalService: SimpleModalService,
-    private projectService: ProjectService
   ) {
 
   }
 
-  ngOnInit(): void {
-    console.log(this.task)
-  }
 
   openModal() {
-    this.projectService.getTask(this.project, this.task.id).subscribe(res => {
 
-      let taskData = {
-        title: res.title,
-        description: res.description,
-        deadline: res.deadline,
-        category: res.category,
-        id: res.id,
-        workers: res.workers,
-        projectworkers: this.projectworkers
-      }
 
-      this.simpleModalService.addModal(TaskModalComponent, {taskData: taskData, projectid: this.project, projectworkers: this.projectworkers}).pipe(takeUntil(this.destroy$)).subscribe(() => {
+      this.task.projectworkers = this.projectworkers
+
+      this.simpleModalService.addModal(TaskModalComponent, {taskData: this.task, projectid: this.project, projectworkers: this.projectworkers}).pipe(takeUntil(this.destroy$)).subscribe(() => {
         this.emittedFunction.emit();
       });
-    })
+    
   }
 
 }

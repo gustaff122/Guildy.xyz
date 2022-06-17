@@ -1,48 +1,182 @@
-.project {
+.modal {
     &--container {
+        background-color: #FFF;
+        border-radius: 4px;
+    }
+
+    &--input {
+        border: none;
+        outline: none;
+        border-radius: 4px;
         background-color: var(--cloud);
+        color: black;
+        padding: 10px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 18px;
 
-        &_add {
-            background-color: var(--sky);
-            opacity: 0.45;
-            transition: opacity 0.25s ease-in-out;
-            cursor: pointer;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    }
 
-            &:hover {
-                opacity: 1
-            }
+    &--close {
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    &--textarea {
+        resize: none;
+        height: 290px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        background-color: var(--cloud);
+        color: var(--dark-primary);
+        padding: 14px;
+
+        font-family: 'Inter';
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--dark-primary);
+    }
+
+    &--btn {
+        border: none;
+        outline: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Poppins';
+        background-color: var(--dark-blue);
+
+        border-radius: 7px;
+        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+    }
+
+}
+
+.icon-edit {
+    top: -32px;
+    right: 10px;
+    font-size: 20px;
+    color: var(--dark-primary);
+    position: relative;
+    float: right;
+}
+
+.nav {
+    &--container {
+        position: fixed;
+        left: 0;
+
+        background-color: var(--smoke);
+        height: 100vh;
+        box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+
+    }
+
+    &--content {
+        
+        height: calc(68vh - 51px);
+        overflow-y: scroll;
+
+        @media screen and (max-width: 991px) {
+            height: auto;
+        }
+
+        &_bg {
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: white;
+            border-radius: 100px;
+        }
+    }
+
+    &--user {
+        &_container {
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
         }
     }
 
     &--name {
-        font-size: 26px;
-        text-align: center;
-        color: #000;
-        font-family: 'Inter';
-        font-weight: 700;
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+
     }
 
-    &--icon {
-        font-size: 36px;
-        color: black;
-        transition: color 0.15s ease-in-out;
-        cursor: pointer;
+    &--btn {
+        border: none;
+        outline: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        &:first-child {
-            &:hover {
-                color: var(--lava)
-            }
+        font-family: 'Poppins';
+        background-color: var(--dark-blue);
+
+        border-radius: 7px;
+        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+        
+        
+    }
+
+    &--logout {
+        cursor: pointer;
+        font-size: 18px;
+        transition: color 0.1s ease-in-out;
+
+        &_mobile {
+            cursor: pointer;
+            font-size: 24px;
         }
 
         &:hover {
-            color: var(--sun);
-        }
-
-        
-        &_neutral {
-            &:hover {
-                color: black !important
-            }
+            color: var(--lava)
         }
     }
+}
+
+.active {
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+}
+
+.hamburger {
+    &--btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: black;
+        z-index: 100;
+    }
+
+    &--container {
+        width: 100%;
+        background-color: var(--smoke);
+    }
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit
 }

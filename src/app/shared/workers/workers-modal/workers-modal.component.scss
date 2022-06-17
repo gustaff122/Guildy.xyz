@@ -1,85 +1,95 @@
 .modal {
     &--container {
         background-color: #fff;
-        border-radius: 10px
+        border-radius: 4px
     }
 
     &--close {
-        color: #DEDEDE;
-        font-size: 42px;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    
+    &--add {
+        top: -35px;
+        right: 10px;
+        font-size: 28px;
+        color: var(--gray);
+        position: relative;
+        float: right;
         cursor: pointer;
         transition: color 0.2s ease-in-out;
 
         &:hover {
-            color: var(--dark-secondary)
+            color: black
         }
-    }
-    
-    &--add {
-        top: -40px;
-        right: 10px;
-        font-size: 28px;
-        color: var(--dark-primary);
-        position: relative;
-        float: right;
-        cursor: pointer;
     }
 
     &--input {
         border: none;
         outline: none;
-        border-radius: 10px;
+        border-radius: 4px;
         background-color: var(--cloud);
-        color: var(--dark-primary);
+        color: black;
         padding: 10px;
-        font-family: 'Inter';
+        font-family: 'Poppins';
         font-weight: 700;
-        font-size: 20px;
+        font-size: 18px;
+
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
     }
 
     &--btn {
-        outline: none;
         border: none;
-        border-radius: 5px;
-        background-color: var(--sky-dark);
+        outline: none;
         color: white;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 900;
-        font-size: 19px;
-        line-height: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Poppins';
+
+        background-color: var(--dark-blue);
+
+        border-radius: 7px;
+        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+
+        i {
+            font-size: 22px
+        }
     }
 
     &--invalid {
         color: var(--lava);
         font-size: 12px;
         text-align: start;
-        top: -20px;
+        top: -22px;
     }
 }
 
 .workers {
     &--user {
         display: flex;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
         align-items: center;
         justify-content: center;
     }
 
     &--username {
-        font-family: 'Inter';
+        font-family: 'Poppins';
         font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
+        font-weight: 500;
+        font-size: 14px;
     }
 
     &--email {
         font-family: 'Inter';
         font-style: normal;
-        font-weight: 700;
-        font-size: 13px;
+        font-weight: 500;
+        font-size: 12px;
         color: var(--dark-secondary)
     }
 
@@ -87,6 +97,7 @@
         font-size: 28px;
         color: var(--dark-secondary);
         cursor: pointer;
+        transition: color 0.2s ease-in-out;
 
         &:hover {
             color: var(--lava)

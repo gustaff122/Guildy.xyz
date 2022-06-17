@@ -1,28 +1,27 @@
-<div class="col-12 column--container p-3">
-  <div class="d-flex justify-content-between align-items-center">
-    <h1 class="text--category m-0">{{ header }}</h1>
-    <i (click)="openModal()" class="plus-icon ci-plus_circle_outline"></i>
-  </div>
-
-  <div class="col-12 column--tasks mt-3">
+<div style="height: 100%" class="col-12 p-0 p-lg-3">
+  <div style="height: 100%" class="col-12 column--tasks mt-3">
     <div
       cdkDropList
-      cdkDropListSortingDisabled="true"
       [cdkDropListData]="tasks"
       (cdkDropListDropped)="drop($event)"
-      class="column--task_container"
+      class="list"
     >
-      <div class="p-1">
+      <div
+        class="d-flex justify-content-between align-items-center column--category p-3 mb-3"
+      >
+        <h1 class="text--category m-0">{{ header }}</h1>
+      </div>
+      <div class="box" cdkDrag [cdkDragData]="item" *ngFor="let item of tasks">
         <app-task
-          *ngFor="let item of tasks"
           [project]="projectid"
-          [cdkDragData]="item"
           [task]="item"
           [projectworkers]="projectworkers"
-          cdkDrag
           (emittedFunction)="emit()"
         >
         </app-task>
+      </div>
+      <div (click)="openModal()" class="column--plus p-3">
+        <i class="ci-plus"></i>
       </div>
     </div>
   </div>

@@ -1,21 +1,24 @@
 .task {
     &--container {
-        background-color: var(--light-secondary);
-        border-radius: 10px;
-        cursor: pointer;
+        background-color: white;
+        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+        border-radius: 3px;
     }
 
-    &--tag {
-        background-color: var(--sky);
-        border-radius: 6px;
-        display: inline-block;
+    &--deadline {
+        color: white;
+        font-family: 'Poppins';
+        font-size: 13px;
+        background-color: var(--lava);
+        border-radius: 4px;
+        padding: 2px 4px;
     }
 
     &--user {
         background-color: var(--lavender);
         display: flex;
-        min-width: 50px;
-        min-height: 50px;
+        min-width: 40px;
+        min-height: 40px;
         border-radius: 100%;
         align-items: center;
         justify-content: center;
@@ -27,17 +30,3 @@
     }
 }
 
-.icon-warning {
-    color: var(--lava);
-    font-size: 32px;
-
-    @media screen and (max-width: 1399px) {
-        font-size: 22px
-    }
-
-}
-
-.icon-comments {
-    color: var(--dark-primary);
-    font-size: 22px;
-}

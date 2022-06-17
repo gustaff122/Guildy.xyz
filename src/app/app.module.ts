@@ -7,25 +7,27 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+
 import { AuthRoutingModule } from './pages/auth/auth-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { UserState } from './shared/store/user.state';
-import { InitialsPipe } from './core/pipes/initials.pipe';
+
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouteReuseStrategy } from '@angular/router';
-import { ProjectReuseStrategy } from './core/strategies/project-reuse-strategy';
+
 import { ToastrModule } from 'ngx-toastr';
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
-  ],
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,12 +39,18 @@ import { ToastrModule } from 'ngx-toastr';
     NgxsModule.forRoot([UserState], {
       developmentMode: !environment.production,
     }),
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      maxOpened: 2
+    }),
+    SimpleModalModule,
+    SimpleModalModule.forRoot({container: document.body}),
     SharedModule
   ],
 
   bootstrap: [AppComponent],
   exports: [
+
   ]
 })
 export class AppModule { }
