@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { SimpleModalService } from 'ngx-simple-modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project-interface';
 import { MainLayoutService } from 'src/app/core/services/main-layout.service';
@@ -17,7 +18,7 @@ import { CreateProjectModalComponent } from './create-project-modal/create-proje
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent  {
 
   @Select(UserState.user) user$: Observable<any> | undefined;
 
@@ -29,13 +30,14 @@ export class MainLayoutComponent {
     private userService: UserService,
     private simpleModalService: SimpleModalService,
     private activatedRoute: ActivatedRoute,
-    private mainLayoutService: MainLayoutService
+    private mainLayoutService: MainLayoutService,
   ) {}
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
+
 
   ngAfterViewInit() {
     this.mainLayoutService.subject.subscribe((data) => {
