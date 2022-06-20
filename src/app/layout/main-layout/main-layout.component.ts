@@ -7,9 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Project } from 'src/app/core/interfaces/project-interface';
 import { MainLayoutService } from 'src/app/core/services/main-layout.service';
-import { ProjectService } from 'src/app/core/services/project.service';
 import { SignService } from 'src/app/core/services/sign.service';
-import { UserService } from 'src/app/core/services/user.service';
 import { UserState } from 'src/app/shared/store/user.state';
 import { CreateProjectModalComponent } from './create-project-modal/create-project-modal.component';
 
@@ -27,7 +25,7 @@ export class MainLayoutComponent  {
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(
-    private userService: UserService,
+    private signService: SignService,
     private simpleModalService: SimpleModalService,
     private activatedRoute: ActivatedRoute,
     private mainLayoutService: MainLayoutService,
@@ -50,7 +48,7 @@ export class MainLayoutComponent  {
   }
 
   logOut() {
-    this.userService.SignOut()
+    this.signService.SignOut()
   }
 
 }

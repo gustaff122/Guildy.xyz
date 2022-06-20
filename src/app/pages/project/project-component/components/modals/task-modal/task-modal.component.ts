@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TaskInterface } from 'src/app/core/interfaces/task-interface';
 import { User } from 'src/app/core/interfaces/user-interface';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-task-modal',
@@ -23,7 +24,7 @@ public task!: TaskInterface
 public form: FormGroup
 
   constructor(
-    private projectService: ProjectService,
+    private taskService: TaskService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService
   ) {
@@ -63,7 +64,7 @@ public form: FormGroup
     })
 
     if (this.form.valid) {
-      this.projectService.patchTask(this.form.value, this.projectid).subscribe(() => {
+      this.taskService.patchTask(this.form.value, this.projectid).subscribe(() => {
         this.close()
       })
     } else {

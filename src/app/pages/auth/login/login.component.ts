@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from 'src/app/core/services/user.service';
+import { SignService } from 'src/app/core/services/sign.service';
 
 @Component({
   templateUrl: './login.component.html',
@@ -15,7 +15,7 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private UserService: UserService,
+    private signService: SignService,
     private router: Router,
     private toastr: ToastrService
   ) {
@@ -32,7 +32,7 @@ export class LoginComponent {
         useremail: email
       })
 
-      this.UserService.SignIn(this.form.value).then(() => {
+      this.signService.SignIn(this.form.value).then(() => {
         this.router.navigate(['project'])
       })
     } else {

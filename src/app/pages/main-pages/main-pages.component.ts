@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable, switchMap, take } from 'rxjs';
 import { ProjectService } from 'src/app/core/services/project.service';
-import { SignService } from 'src/app/core/services/sign.service';
 import { UserState } from 'src/app/shared/store/user.state';
 
 @Component({

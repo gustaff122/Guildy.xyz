@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Project } from '../interfaces/project-interface';
 import { ProjectPatchName } from '../interfaces/project-patchname-interface';
 import { TaskInterface } from '../interfaces/task-interface';
-import { SignService } from './sign.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,15 +18,13 @@ export class ProjectService {
 
   constructor(
     private httpClient: HttpClient,
-    private signService: SignService
+    private userService: UserService
   ) { 
-    this.signService.getSelf().subscribe(res => {
+    this.userService.getSelf().subscribe(res => {
       this.uid = res.uid!
     })
   }
   
-
-
   createProject(name: string) {
     return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid, "title": name}, { responseType: 'text' })
   }
@@ -43,28 +41,12 @@ export class ProjectService {
     return this.httpClient.patch<ProjectPatchName>(`${this.API_URL}/projects/title/`, projectName)
   }
 
-  createTask(task: TaskInterface, project: string) {
-    return this.httpClient.post(`${this.API_URL}/task/`, {task: task, project: project})
-  }
-
-  patchTask(task: TaskInterface, project: string) {
-    return this.httpClient.patch<string>(`${this.API_URL}/task/`, {task: task, project: project})
-  }
-
-  moveTask(task: TaskInterface, project: string, category: string) {
-    return this.httpClient.patch<string>(`${this.API_URL}/task/move`, {task: task, project: project, category: category})
-  }
-
   addProjectWorkers(project: string, worker: string) {
     return this.httpClient.post(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
   }
 
   removeProjectWorkers(project: string, worker: string) {
     return this.httpClient.patch(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
-  }
-
-  getTask(project: string, task: string) {
-    return this.httpClient.post<TaskInterface>(`${this.API_URL}/task/data/`, {project: project, task: task})
   }
 
   deleteProject(project: string) {

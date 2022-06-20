@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user-interface';
-import { SignService } from '../services/sign.service'
+import { UserService } from '../services/user.service'
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { SignService } from '../services/sign.service'
 export class ProjectAccessGuardGuard implements CanActivate {
 
   constructor(
-    private signService: SignService,
+    private userService: UserService,
     private router: Router
   ) {
 
@@ -21,7 +21,7 @@ export class ProjectAccessGuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree | any {
 
       let projects: Array<string> = [];
-      return this.signService.getSelf().toPromise().then((res) => {
+      return this.userService.getSelf().toPromise().then((res) => {
         projects = res!.Projects!;
         projects.push('welcome')
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from 'src/app/core/services/user.service';
+import { SignService } from 'src/app/core/services/sign.service';
 
 @Component({
   templateUrl: './register.component.html',
@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private UserService: UserService,
+    private signService: SignService,
     private router: Router,
     private toastr: ToastrService
   ) { 
@@ -33,7 +33,7 @@ export class RegisterComponent {
       this.form.patchValue({
         useremail: email
       })
-      this.UserService.SignUp(this.form.value).then(() => {
+      this.signService.SignUp(this.form.value).then(() => {
         this.router.navigate(['/project'])
       })
     } else {

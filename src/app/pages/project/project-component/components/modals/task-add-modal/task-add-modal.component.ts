@@ -5,6 +5,7 @@ import { SimpleModalComponent } from 'ngx-simple-modal';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/core/interfaces/user-interface';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-task-add-modal',
@@ -23,7 +24,7 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
 
   constructor(
     private formBuilder: FormBuilder,
-    private projectService: ProjectService,
+    private taskService: TaskService,
     private toastr: ToastrService,
     private datePipe: DatePipe,
   ) {
@@ -69,7 +70,7 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
     })
 
     if (this.form.valid) {
-      this.projectService.createTask(this.form.value, this.id).subscribe(() => {
+      this.taskService.createTask(this.form.value, this.id).subscribe(() => {
         this.close()
       })
     } else {

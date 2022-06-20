@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { User } from 'src/app/core/interfaces/user-interface';
-import { SignService } from 'src/app/core/services/sign.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { FetchUser, Login, Logout } from './user.actions';
 
 export interface IUserStateModel {
@@ -31,13 +31,13 @@ export class UserState {
 
   constructor(
     private router: Router,
-    private signService: SignService,
+    private userService: UserService,
     private ngZone: NgZone
   ) { }
 
   
   ngxsOnInit(ctx: StateContext<IUserStateModel>) {
-    this.signService.getSelf().subscribe(res => {
+    this.userService.getSelf().subscribe(res => {
       if (res) {
         return ctx.dispatch(new FetchUser());
       } else {
@@ -49,7 +49,7 @@ export class UserState {
 
   @Action(FetchUser)
   FetchUser(ctx: StateContext<IUserStateModel>, action: FetchUser) {
-    return this.signService.getSelf().subscribe(
+    return this.userService.getSelf().subscribe(
       data => {
         ctx.patchState({ user: data, isLogged: true });
       }

@@ -8,6 +8,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import { ProjectService } from 'src/app/core/services/project.service';
 import { User } from 'src/app/core/interfaces/user-interface';
 import { OrderPipe } from 'ngx-order-pipe';
+import { TaskService } from 'src/app/core/services/task.service';
 
 @Component({
   selector: 'app-column',
@@ -37,7 +38,7 @@ export class ColumnComponent {
 
   constructor(
     private simpleModalService: SimpleModalService,
-    private projectService: ProjectService
+    private taskService: TaskService
   ) {
     
   }
@@ -62,13 +63,13 @@ export class ColumnComponent {
 
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       if (container % 3 == 1) {
-        this.projectService.moveTask(task, this.projectid, "todos").subscribe()
+        this.taskService.moveTask(task, this.projectid, "todos").subscribe()
       }
       if (container % 3 == 2) {
-        this.projectService.moveTask(task, this.projectid, "wips").subscribe()
+        this.taskService.moveTask(task, this.projectid, "wips").subscribe()
       }
       if (container % 3 == 0) {
-        this.projectService.moveTask(task, this.projectid, "completed").subscribe()
+        this.taskService.moveTask(task, this.projectid, "completed").subscribe()
       }
       
     } else {
@@ -96,16 +97,16 @@ export class ColumnComponent {
 
       if (container % 3 == 1) {
         task.category = "todos"
-        this.projectService.moveTask(task, this.projectid, "todos").subscribe()
+        this.taskService.moveTask(task, this.projectid, "todos").subscribe()
         
       }
       if (container % 3 == 2) {
         task.category = "wips"
-        this.projectService.moveTask(task, this.projectid, "wips").subscribe()
+        this.taskService.moveTask(task, this.projectid, "wips").subscribe()
       }
       if (container % 3 == 0) {
         task.category = "completed"
-        this.projectService.moveTask(task, this.projectid, "completed").subscribe()
+        this.taskService.moveTask(task, this.projectid, "completed").subscribe()
       }
     }
   }
