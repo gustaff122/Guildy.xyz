@@ -33,7 +33,7 @@ export class RegisterComponent {
       this.form.patchValue({
         useremail: email
       })
-      this.signService.SignUp(this.form.value).then(() => {
+      this.signService.signUp(this.form.value).then(() => {
         this.router.navigate(['/project'])
       })
     } else {

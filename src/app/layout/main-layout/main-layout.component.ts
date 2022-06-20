@@ -48,7 +48,7 @@ export class MainLayoutComponent  {
   }
 
   logOut() {
-    this.signService.SignOut()
+    this.signService.signOut()
   }
 
 }

@@ -1,1 +1,24 @@
-@import '../auth.component.scss'
+.auth {
+    &--redirect {
+        font-size: 14px;
+        font-family: 'Inter';
+
+        &_link {
+            color: var(--sky-dark);
+            cursor: pointer;
+        }
+    }
+
+    &--icon {
+        top: -31px;
+        right: 10px;
+        font-size: 20px;
+        color: black;
+        position: relative;
+        float: right;
+
+        &_pass {
+            cursor: pointer;
+        }
+    }
+}

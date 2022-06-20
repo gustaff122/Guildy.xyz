@@ -1,47 +1,40 @@
-<div class="container main-container">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row px-2">
-    <h1 class="text-start auth--header col-12 col-md-4 offset-md-4 px-0 mb-2">
-      Guildy.xyz
-    </h1>
-    <div class="col-12 col-md-4 offset-md-4 auth--container px-md-5 pt-5 pb-4">
-      <div class="col-12 mb-3">
-        <input
-          class="input input--white w-100"
-          type="email"
-          placeholder="E-Mail"
-          formControlName="useremail"
-        />
-        <i class="auth--icon ci-mail"></i>
-      </div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="col-12 mb-3">
+    <input
+      class="input input--white w-100"
+      type="email"
+      placeholder="E-Mail"
+      formControlName="useremail"
+    />
+    <i class="auth--icon ci-mail"></i>
+  </div>
 
-      <div class="col-12 mb-3">
-        <input
-          class="input input--white w-100"
-          type="text"
-          placeholder="Name"
-          formControlName="username"
-        />
-        <i class="auth--icon ci-user"></i>
-      </div>
+  <div class="col-12 mb-3">
+    <input
+      class="input input--white w-100"
+      type="text"
+      placeholder="Name"
+      formControlName="username"
+    />
+    <i class="auth--icon ci-user"></i>
+  </div>
 
-      <div class="col-12 mb-4">
-        <input
-          class="input input--white w-100"
-          [type]="toggle"
-          placeholder="Password"
-          formControlName="password"
-        />
-        <i (click)="onToggle()" class="auth--icon auth--icon_pass ci-show"></i>
-      </div>
+  <div class="col-12 mb-4">
+    <input
+      class="input input--white w-100"
+      [type]="toggle"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <i (click)="onToggle()" class="auth--icon auth--icon_pass ci-show"></i>
+  </div>
 
-      <div class="col-12">
-        <button type="submit" class="button w-100 py-3">Register</button>
-      </div>
+  <div class="col-12">
+    <button type="submit" class="button w-100 py-3">Register</button>
+  </div>
 
-      <p class="text-center auth--redirect mt-2 mb-0">
-        You've got an account?
-        <span class="auth--redirect_link" routerLink="/auth/login">Login.</span>
-      </p>
-    </div>
-  </form>
-</div>
+  <p class="text-center auth--redirect mt-2 mb-0">
+    You've got an account?
+    <a class="auth--redirect_link" routerLink="/auth/login">Login.</a>
+  </p>
+</form>

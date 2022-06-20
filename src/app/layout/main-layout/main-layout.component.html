@@ -5,17 +5,19 @@
         class="d-lg-none hamburger--btn"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#collapseExample"
+        data-bs-target="#collapse"
       >
         <i class="ci-hamburger"></i>
       </div>
     </div>
 
-    <div class="px-0 collapse col-12 d-lg-none" id="collapseExample">
+    <div class="px-0 collapse col-12 d-lg-none" id="collapse">
       <div class="hamburger--container col-12">
         <div class="w-100 text-end pt-3 pe-3">
           <div>
-            <i (click)="logOut()" class="ci-log_out nav--logout_mobile"></i>
+            <a (click)="logOut()"
+              ><i class="ci-log_out nav--logout_mobile"></i
+            ></a>
           </div>
         </div>
         <a

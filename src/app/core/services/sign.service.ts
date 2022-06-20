@@ -22,13 +22,11 @@ export class SignService {
     private toastr: ToastrService,
   ) {}
 
-  //should I handle reports here, in service?
-
   completeRegister(data: User) {
     return this.httpClient.post(`${this.API_URL}/users/register/`, data, {responseType: 'text'})
   }
 
-  SignIn(data: User) {
+  signIn(data: User) {
     return this.fireAuth.signInWithEmailAndPassword(data.useremail, data.password!).then(() => {
       this.store.dispatch(new FetchUser())
     }).catch((e) => {
@@ -41,7 +39,7 @@ export class SignService {
     });
   }
 
-  SignUp(data: User) {
+  signUp(data: User) {
     return this.fireAuth.createUserWithEmailAndPassword(data.useremail, data.password!)
     .catch((e) => {
       if (e.code == 'auth/invalid-email') {
@@ -67,9 +65,10 @@ export class SignService {
     })
   }
 
-  SignOut() {
-    this.store.dispatch(new Logout());
-    return this.fireAuth.signOut()
+  signOut() {
+    return this.fireAuth.signOut().then(() => {
+      this.store.dispatch(new Logout());
+    })
   }
 
   

@@ -25,7 +25,7 @@ export class ProjectComponentComponent implements OnInit {
   ) {
   }
 
-  public workers = []
+  public workers = this.project.workers
 
   setRoute() {
     this.activatedRoute.params.pipe(takeUntil(this.destroy$)).subscribe(params => {

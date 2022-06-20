@@ -20,27 +20,4 @@
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
 
-    &--icon {
-        top: -31px;
-        right: 10px;
-        font-size: 20px;
-        color: black;
-        position: relative;
-        float: right;
-
-        &_pass {
-            cursor: pointer;
-        }
-    }
-
-    &--redirect {
-        font-size: 14px;
-        font-family: 'Inter';
-
-        &_link {
-            color: var(--sky-dark);
-            cursor: pointer;
-        }
-    }
-
 }

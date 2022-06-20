@@ -32,7 +32,7 @@ export class LoginComponent {
         useremail: email
       })
 
-      this.signService.SignIn(this.form.value).then(() => {
+      this.signService.signIn(this.form.value).then(() => {
         this.router.navigate(['project'])
       })
     } else {
