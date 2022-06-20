@@ -58,7 +58,7 @@ export class TitleEditModalComponent extends SimpleModalComponent<any, string> i
 
   removeProject() {
     this.projectService.deleteProject(this.id).subscribe(() => {
-      this.router.navigate(['/project'])
+      this.router.navigate(['/welcome'])
     })
   }
 

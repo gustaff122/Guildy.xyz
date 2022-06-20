@@ -20,19 +20,5 @@ export class WelcomeComponent {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  removeFromList(id: string) {
-    for (let i = 0; i < this.projects.length; i++) {
-      if (this.projects[i].project == id) {
-        this.projects.splice(i, 1)
-      }
-    }
-  }
-
-
-  deleteProject(id: string) {
-    this.projectService.deleteProject(id).subscribe(() => {
-      this.removeFromList(id)
-    })
-  }
 
 }
