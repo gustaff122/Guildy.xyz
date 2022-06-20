@@ -11,41 +11,6 @@
         cursor: pointer;
     }
 
-    &--input {
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        background-color: var(--cloud);
-        color: black;
-        padding: 10px;
-        font-family: 'Poppins';
-        font-weight: 700;
-        font-size: 18px;
-
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    &--btn {
-        font-family: 'Poppins';
-        font-weight: 500;
-        font-size: 17px;
-        color: white;
-        outline: none;
-        border: none;
-        border-radius: 7px;
-        display: inline;
-        box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
-
-        background-color: var(--dark-blue);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    
-  
-    }
-
 }
 
 .icon-edit {

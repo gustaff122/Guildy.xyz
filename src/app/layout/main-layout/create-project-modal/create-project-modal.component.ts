@@ -27,6 +27,8 @@ export class CreateProjectModalComponent extends SimpleModalComponent<any, strin
     });
   }
 
+ //should i handle errors here?
+
   createProject() {
     if (this.form.valid) {
       this.disableAction = true

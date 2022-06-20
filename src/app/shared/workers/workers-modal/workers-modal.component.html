@@ -17,7 +17,7 @@
         <input
           type="text"
           placeholder="Add new..."
-          class="w-100 modal--input"
+          class="w-100 input"
           [formControl]="worker"
         />
         <i (click)="addWorker()" class="ci-plus_circle modal--add"></i>
@@ -44,11 +44,7 @@
         ></i>
       </div>
       <div class="mt-4 w-100 d-flex justify-content-center">
-        <button
-          type="submit"
-          (click)="addWorker()"
-          class="modal--btn px-5 py-3"
-        >
+        <button type="submit" (click)="addWorker()" class="button w-100 py-3">
           <i class="ci-user_plus me-1"></i>Add Member
         </button>
       </div>

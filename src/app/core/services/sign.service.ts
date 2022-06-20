@@ -22,6 +22,7 @@ export class SignService {
     private toastr: ToastrService,
   ) {}
 
+  //should I handle reports here, in service?
 
   completeRegister(data: User) {
     return this.httpClient.post(`${this.API_URL}/users/register/`, data, {responseType: 'text'})

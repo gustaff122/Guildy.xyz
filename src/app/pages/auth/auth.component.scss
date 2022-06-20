@@ -20,25 +20,8 @@
         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
 
-    &--input {
-        background-color: var(--light-secondary);
-        border-radius: 7px;
-        font-family: 'Inter';
-        font-weight: 700;
-        font-size: 18px;
-        color: var(--dark-primary);
-        padding: 8px 10px;
-        border: none;
-        outline: none;
-        box-shadow: 0px 0px 4px rgba(110, 110, 110, 0.25);
-
-        &::placeholder {
-            color: var(--dark-secondary)
-        }
-    }
-
     &--icon {
-        top: -32px;
+        top: -30px;
         right: 10px;
         font-size: 20px;
         color: black;
@@ -48,20 +31,6 @@
         &_pass {
             cursor: pointer;
         }
-    }
-
-    &--btn {
-        font-family: 'Inter';
-        font-weight: 900;
-        font-size: 18px;
-        color: white;
-        outline: none;
-        border: none;
-        padding: 13px;
-        border-radius: 10px;
-        display: inline;
-        background-color: var(--dark-blue);
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
 
     &--redirect {

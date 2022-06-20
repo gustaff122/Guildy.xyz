@@ -1,0 +1,14 @@
+.button {
+    border: none;
+    outline: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Poppins';
+    background-color: var(--dark-blue);
+
+    border-radius: 3px;
+    box-shadow: 0px 0px 4px rgba(160, 160, 160, 0.25);
+}

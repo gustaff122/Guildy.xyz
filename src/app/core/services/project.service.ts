@@ -26,7 +26,7 @@ export class ProjectService {
   }
   
   createProject(name: string) {
-    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid, "title": name}, { responseType: 'text' })
+    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid, "title": name}, { responseType: 'text' }) //why <string> does not work?
   }
 
   getAllProjects(uid: string) {
@@ -42,14 +42,14 @@ export class ProjectService {
   }
 
   addProjectWorkers(project: string, worker: string) {
-    return this.httpClient.post(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
+    return this.httpClient.post(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'}) //why <string> does not work?
   }
 
   removeProjectWorkers(project: string, worker: string) {
-    return this.httpClient.patch(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'})
+    return this.httpClient.patch(`${this.API_URL}/projects/workers/`, {project: project, worker: worker}, {responseType: 'text'}) //why <string> does not work?
   }
 
   deleteProject(project: string) {
-    return this.httpClient.post(`${this.API_URL}/projects/remove/`, {project: project}, {responseType: 'text'})
+    return this.httpClient.post(`${this.API_URL}/projects/remove/`, {project: project}, {responseType: 'text'}) //why <string> does not work?
   }
 }
