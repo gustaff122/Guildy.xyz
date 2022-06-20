@@ -23,7 +23,6 @@ export class ProjectAccessGuardGuard implements CanActivate {
       let projects: Array<string> = [];
       return this.userService.getSelf().toPromise().then((res) => {
         projects = res!.Projects!;
-        projects.push('welcome')
 
         let includes = projects.includes(route.params['id'])
 

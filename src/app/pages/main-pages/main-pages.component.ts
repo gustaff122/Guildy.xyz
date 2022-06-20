@@ -18,7 +18,6 @@ export class MainPagesComponent {
   public projects = this.activatedRoute.snapshot.data[0]
 
   constructor(
-
     private activatedRoute: ActivatedRoute,
   ) { }
 
