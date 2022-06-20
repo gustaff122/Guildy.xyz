@@ -72,6 +72,12 @@ public form: FormGroup
     }
   }
 
+  removeTask() {
+    this.taskService.removeTask(this.projectid, this.taskData.id).subscribe(() => {
+      this.close()
+    })
+  }
+
   closeModal() {
     this.close()
   }

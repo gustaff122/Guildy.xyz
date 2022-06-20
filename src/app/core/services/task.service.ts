@@ -34,6 +34,9 @@ export class TaskService {
     return this.httpClient.patch<string>(`${this.API_URL}/task/move`, {task: task, project: project, category: category})
   }
 
+  removeTask(project: string, task: string) {
+    return this.httpClient.post(`${this.API_URL}/task/remove`, {project: project, task: task})
+  }
 
   //unused
   getTask(project: string, task: string) {

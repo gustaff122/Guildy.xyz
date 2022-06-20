@@ -1,1 +1,13 @@
-@import '../../../../project.component.scss'
+@import '../../../../project.component.scss';
+
+.remove {
+    background-color: var(--lava);
+    padding: 12px;
+    border-radius: 100%;
+    font-size: 22px;
+    color: white;
+    transition: color 0.25s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);;
+}

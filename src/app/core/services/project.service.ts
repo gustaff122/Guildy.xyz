@@ -26,7 +26,7 @@ export class ProjectService {
   }
   
   createProject(name: string) {
-    return this.httpClient.post(`${this.API_URL}/projects/new`, {"uid": this.uid, "title": name}, { responseType: 'text' }) //why <string> does not work?
+    return this.httpClient.post(`${this.API_URL}/projects/new`, {uid: this.uid, title: name}, { responseType: 'text' }) //why <string> does not work?
   }
 
   getAllProjects(uid: string) {
