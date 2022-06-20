@@ -33,7 +33,7 @@
     </div>
 
     <div class="columns--container">
-      <div class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2">
+      <div class="col-12 col-sm-8 offset-sm-2 offset-lg-0 col-lg-4 p-1 p-xxl-2">
         <app-column
           header="Next Up"
           [tasks]="project.todos"
@@ -42,7 +42,7 @@
           (emittedFunction)="setRoute()"
         ></app-column>
       </div>
-      <div class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2">
+      <div class="col-12 col-sm-8 offset-sm-2 offset-lg-0 col-lg-4 p-1 p-xxl-2">
         <app-column
           header="In Progress"
           [tasks]="project.wips"
@@ -52,7 +52,7 @@
         ></app-column>
       </div>
       <div
-        class="col-12 col-sm-8 offset-sm-2 offset-md-0 col-md-4 p-1 p-xxl-2 columns--last"
+        class="col-12 col-sm-8 offset-sm-2 offset-lg-0 col-lg-4 p-1 p-xxl-2 columns--last"
       >
         <app-column
           header="Completed"
