@@ -4,7 +4,7 @@
   >
     <div class="row">
       <div class="d-flex justify-content-between align-items-center">
-        <h1 class="text--category">Members.</h1>
+        <h1 i18n class="text--category">Members.</h1>
         <i
           (click)="closeModal()"
           class="modal--close ci-close_small position-absolute"
@@ -44,7 +44,12 @@
         ></i>
       </div>
       <div class="mt-4 w-100 d-flex justify-content-center">
-        <button type="submit" (click)="addWorker()" class="button w-100 py-3">
+        <button
+          i18n
+          type="submit"
+          (click)="addWorker()"
+          class="button w-100 py-3"
+        >
           <i class="ci-user_plus me-1"></i>Add Member
         </button>
       </div>

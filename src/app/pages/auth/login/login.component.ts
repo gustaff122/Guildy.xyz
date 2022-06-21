@@ -36,7 +36,7 @@ export class LoginComponent {
         this.router.navigate(['project'])
       })
     } else {
-      this.toastr.error('Fields are required')
+      this.toastr.error($localize `Fields are required`)
     }
   }
 

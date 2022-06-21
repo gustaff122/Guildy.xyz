@@ -29,7 +29,9 @@
       </div>
     </div>
     <div class="col-12 col-lg-6 mt-2 pe-0 ps-lg-5">
-      <p class="text-start text--task_header" style="color: black">Workers</p>
+      <p i18n class="text-start text--task_header" style="color: black">
+        Members
+      </p>
       <app-workers-task
         [allWorkers]="projectworkers"
         (emittedFunction)="getWorkers($event)"
@@ -39,7 +41,7 @@
       <div
         class="col-12 d-flex justify-content-center justify-content-lg-end align-items-center"
       >
-        <button type="submit" class="button py-3 px-5">
+        <button i18n type="submit" class="button py-3 px-5">
           <i class="ci-check_bold me-2"></i>Save
         </button>
       </div>

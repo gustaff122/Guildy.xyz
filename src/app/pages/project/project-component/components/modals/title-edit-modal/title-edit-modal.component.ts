@@ -51,7 +51,7 @@ export class TitleEditModalComponent extends SimpleModalComponent<any, string> i
         this.close()
       })
     } else {
-      this.toastr.error('Title should have at least 2 characters and less than 65.')
+      this.toastr.error($localize `Title should have at least 2 characters and less than 65.`)
     }
     
   }

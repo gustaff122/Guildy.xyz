@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1881441549714954946" datatype="html">
+        <source>Invalid email.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/sign.service.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6758053209062470464" datatype="html">
+        <source>User does not exist.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/sign.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1140599166278569579" datatype="html">
+        <source>Invalid email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/sign.service.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7036390632897163078" datatype="html">
+        <source>Password should be at least 6 characters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/sign.service.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="763970338207090986" datatype="html">
+        <source>Email is already in use.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/sign.service.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5132597689526105" datatype="html">
+        <source>New Project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/create-project-modal/create-project-modal.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4196076467708026285" datatype="html">
+        <source>Your Project</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/create-project-modal/create-project-modal.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6488501432515161740" datatype="html">
+        <source>Title should have at least 2 characters and less than 65.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/create-project-modal/create-project-modal.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/title-edit-modal/title-edit-modal.component.ts</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2491387310647018828" datatype="html">
+        <source>About Guildy.xyz</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/main-layout/main-layout.component.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8115083664628466958" datatype="html">
+        <source>E-Mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5110809113899599285" datatype="html">
+        <source>You&apos;ve got no account? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4682965055974305407" datatype="html">
+        <source>Register.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9219873000857275528" datatype="html">
+        <source>Fields are required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/login/login.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1572366881172001491" datatype="html">
+        <source>You&apos;ve got an account? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5396235725738548022" datatype="html">
+        <source>Login.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5379505425082712782" datatype="html">
+        <source>Fields are necessary</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/register/register.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2415344939350446162" datatype="html">
+        <source> Members </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-add-modal/task-add-modal.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-modal/task-modal.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/workers/workers.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5459411228171836922" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;ci-check_bold me-2&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Save </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-add-modal/task-add-modal.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-modal/task-modal.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/title-edit-modal/title-edit-modal.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1919754991650076547" datatype="html">
+        <source>Title is required (max 48 characters). Description should not have more than 1024 characters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-add-modal/task-add-modal.component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/components/modals/task-modal/task-modal.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4660295018193244862" datatype="html">
+        <source> Click <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;project--description_icon&quot;
+          &gt;"/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;ci-plus&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>New<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span
+        &gt;"/> to add new task. Then, just do what you have to do. Fingers crossed! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project-component/project-component.component.html</context>
+          <context context-type="linenumber">15,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/project/project.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6303730583907702382" datatype="html">
+        <source>Members.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/workers/workers-modal/workers-modal.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9092730751270020831" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;ci-user_plus me-1&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Add Member </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/workers/workers-modal/workers-modal.component.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2734780694152757859" datatype="html">
+        <source>View all</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/workers/workers.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

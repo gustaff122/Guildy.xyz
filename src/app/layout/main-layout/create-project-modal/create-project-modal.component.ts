@@ -23,7 +23,7 @@ export class CreateProjectModalComponent extends SimpleModalComponent<any, strin
   ) {
     super();
     this.form = this.formBuilder.group({
-      name: ['Your Project', [Validators.required, Validators.minLength(2), Validators.maxLength(64)]],
+      name: [$localize `Your Project`, [Validators.required, Validators.minLength(2), Validators.maxLength(64)]],
     });
   }
 
@@ -35,7 +35,7 @@ export class CreateProjectModalComponent extends SimpleModalComponent<any, strin
           this.close()
       })
     }  else {
-      this.toastr.error('Title should have at least 2 characters and less than 65.')
+      this.toastr.error($localize `Title should have at least 2 characters and less than 65.`)
     }
     
   }

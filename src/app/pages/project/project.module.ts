@@ -16,7 +16,6 @@ import { ProjectAccessGuardGuard } from 'src/app/core/guards/project-access-guar
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CreateProjectModalComponent } from '../../layout/main-layout/create-project-modal/create-project-modal.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -29,7 +28,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
     TaskAddModalComponent,
     TitleEditModalComponent,
     CreateProjectModalComponent,
-    WelcomeComponent,
   ],
   imports: [
     CommonModule,

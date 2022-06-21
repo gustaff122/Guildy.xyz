@@ -31,10 +31,10 @@ export class SignService {
       this.store.dispatch(new FetchUser())
     }).catch((e) => {
       if (e.code == 'auth/invalid-email') {
-        this.toastr.error('Invalid email.')
+        this.toastr.error($localize `Invalid email.`)
       }
       if (e.code == 'auth/user-not-found') {
-        this.toastr.error('User does not exist.')
+        this.toastr.error($localize `User does not exist.`)
       }
     });
   }
@@ -43,13 +43,13 @@ export class SignService {
     return this.fireAuth.createUserWithEmailAndPassword(data.useremail, data.password!)
     .catch((e) => {
       if (e.code == 'auth/invalid-email') {
-        this.toastr.error('Invalid email.')
+        this.toastr.error($localize `Invalid email`)
       }
       if (e.code == 'auth/weak-password') {
-        this.toastr.error('Password should be at least 6 characters.')
+        this.toastr.error($localize `Password should be at least 6 characters.`)
       }
       if (e.code == 'auth/email-already-in-use') {
-        this.toastr.error("Email is already in use.")
+        this.toastr.error($localize `Email is already in use.`)
       }
     })
     .then((user) => {

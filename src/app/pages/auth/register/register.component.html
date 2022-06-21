@@ -5,6 +5,7 @@
       type="email"
       placeholder="E-Mail"
       formControlName="useremail"
+      i18n-placeholder
     />
     <i class="auth--icon ci-mail"></i>
   </div>
@@ -15,6 +16,7 @@
       type="text"
       placeholder="Name"
       formControlName="username"
+      i18n-placeholder
     />
     <i class="auth--icon ci-user"></i>
   </div>
@@ -25,16 +27,17 @@
       [type]="toggle"
       placeholder="Password"
       formControlName="password"
+      i18n-placeholder
     />
     <i (click)="onToggle()" class="auth--icon auth--icon_pass ci-show"></i>
   </div>
 
   <div class="col-12">
-    <button type="submit" class="button w-100 py-3">Register</button>
+    <button i18n type="submit" class="button w-100 py-3">Register</button>
   </div>
 
   <p class="text-center auth--redirect mt-2 mb-0">
-    You've got an account?
-    <a class="auth--redirect_link" routerLink="/auth/login">Login.</a>
+    <span i18n>You've got an account? </span>
+    <a i18n class="auth--redirect_link" routerLink="/auth/login">Login.</a>
   </p>
 </form>

@@ -37,7 +37,7 @@ export class RegisterComponent {
         this.router.navigate(['/project'])
       })
     } else {
-      this.toastr.error('Fields are necessary')
+      this.toastr.error($localize `Fields are necessary`)
     }
     
   }

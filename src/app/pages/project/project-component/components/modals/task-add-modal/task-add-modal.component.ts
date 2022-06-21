@@ -74,7 +74,7 @@ export class TaskAddModalComponent extends SimpleModalComponent<any, string> imp
         this.close()
       })
     } else {
-      this.toastr.error("Title is required (max 48 characters). Description should not have more than 1024 characters.")
+      this.toastr.error($localize `Title is required (max 48 characters). Description should not have more than 1024 characters.`)
     }
     
    }
