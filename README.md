@@ -15,5 +15,5 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-##i18n branch
+## i18n branch
 i18n contains translated version of page.
