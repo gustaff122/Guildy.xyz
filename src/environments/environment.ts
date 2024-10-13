@@ -4,6 +4,16 @@
 
 export const environment = {
   production: false,
+  apiURL: 'http://localhost:40181',
+  firebase: {
+    apiKey: "AIzaSyAYBRmhpg37uMfMuLPCOQreSyQO-Dne_h4",
+    authDomain: "easymanager-a8421.firebaseapp.com",
+    projectId: "easymanager-a8421",
+    storageBucket: "easymanager-a8421.appspot.com",
+    messagingSenderId: "202743859628",
+    appId: "1:202743859628:web:7835090c511fcc3fdad209",
+    measurementId: "G-83LPX7957B"
+  }
 };
 
 /*
